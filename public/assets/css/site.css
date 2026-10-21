@@ -137,6 +137,8 @@ button,input,textarea{font:inherit;color:inherit}
 }
 .icon-btn:hover{color:var(--ink);border-color:color-mix(in srgb,var(--ink) 20%,var(--line))}
 .icon-btn svg{width:17px;height:17px}
+.icon-btn.gh-link svg{width:16px;height:16px}
+@media (max-width:360px){.nav-actions{gap:4px;margin-left:4px}.nav-actions .icon-btn{width:34px;height:34px}}
 .theme-toggle .moon{display:none}
 :root[data-theme="dark"] .theme-toggle .sun{display:none}
 :root[data-theme="dark"] .theme-toggle .moon{display:block}
