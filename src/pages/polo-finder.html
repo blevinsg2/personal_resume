@@ -1,0 +1,212 @@
+<main id="main" class="ct pf">
+  <section class="page-head" style="padding-bottom:clamp(32px,5vw,48px)">
+    <div class="wrap">
+      <div class="crumbs reveal"><a href="/">Home</a><span class="s">/</span><span>Work</span><span class="s">/</span><a href="/work/ai-projects/">AI Projects</a><span class="s">/</span><span>Polo Finder</span></div>
+      <div class="ct-hero">
+        <img class="ct-logo pf-logo reveal" src="/assets/img/work/polo-finder/find-1.webp" width="160" height="160" alt="A striped golf polo with a club logo, found on a thrift store rack">
+        <div>
+          <p class="eyebrow reveal" style="--d:.03s"><span class="dot" aria-hidden="true"></span>AI Project · <span class="wip">Work in progress</span></p>
+          <h1 class="h-page reveal" style="--d:.06s">Polo <span class="serif accent">Finder</span></h1>
+          <p class="lede reveal" style="--d:.1s">Hunting thrift racks for golf polos from courses all over the United States, plus the AI-built pipeline behind it: route planning, buy-or-pass pricing, photo cleanup, listing drafts, and SKU tracking.</p>
+        </div>
+      </div>
+      <div class="btn-row reveal" style="--d:.14s">
+        <a class="btn btn-primary" href="#pipeline">See the pipeline {{icon:arrow}}</a>
+        <a class="btn btn-ghost" href="#app">Explore the app</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <figure class="pf-shot pf-shot-hero reveal">
+        <div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span>Polo Pipeline · home</span></div>
+        <img src="/assets/img/work/polo-finder/app-pipeline.webp" width="1400" height="1017" alt="Polo Pipeline home screen: Today counters, the three-step everyday pipeline (Intake and Photos, List on eBay, Sold and Done), and on-demand tools for Route Planning, Pricing, and Receipt Tracker" fetchpriority="high">
+      </figure>
+      <p class="pf-note reveal">The app's home screen, shown with demo data.</p>
+      <dl class="ct-facts reveal">
+        <div><dt>AI assistants</dt><dd>4 <span>bots</span></dd></div>
+        <div><dt>Thrift runs</dt><dd>8 <span>stops</span></dd></div>
+        <div><dt>Every shirt</dt><dd>1 <span>SKU</span></dd></div>
+        <div><dt>Status</dt><dd>Building</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">The story</p>
+        <h2 class="h-section" id="why">Why I <span class="serif">love</span> it.</h2>
+      </div>
+      <div class="prose reveal">
+        <p class="big">I started selling used golf polos just for fun, really. Now I love it.</p>
+        <p>What I love most is finding polos from golf courses all across the United States, and the process around the whole thing: standing up the inventory tagging process, and figuring out how to store listed shirts so I can pull them quickly when they sell.</p>
+        <p>It's also a pretty cheap hobby. A lot of it is just driving around to different thrift stores, searching for those needles in a haystack.</p>
+        <p>I got started through a friend, <strong>Shane Canup</strong>, who does something similar, mostly with professional and collegiate sports gear. The different pages in the app came straight out of conversations we had while driving around. I built it all with AI. It's still a work in progress, but there's some really interesting stuff being worked on, so feel free to go deep.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="finds">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">The hunt</p>
+          <h2 class="h-section" id="finds">Needles in a <span class="serif">haystack</span>.</h2>
+        </div>
+        <p>A real find, straight off the rack: a striped performance polo with a course logo stitched on the chest.</p>
+      </div>
+      <div class="pf-finds">
+        <figure class="reveal"><img src="/assets/img/work/polo-finder/find-1.webp" width="900" height="900" loading="lazy" alt="Striped golf polo hanging on a crowded thrift store rack"><figcaption><span class="mono">01</span>Spotted on the rack</figcaption></figure>
+        <figure class="reveal" style="--d:.06s"><img src="/assets/img/work/polo-finder/find-2.webp" width="900" height="900" loading="lazy" alt="Inside collar showing the Fairway &amp; Greene label"><figcaption><span class="mono">02</span>Check the tag</figcaption></figure>
+        <figure class="reveal" style="--d:.12s"><img src="/assets/img/work/polo-finder/find-3.webp" width="900" height="900" loading="lazy" alt="Close-up of a small red golf club logo embroidered on the chest"><figcaption><span class="mono">03</span>Find the club logo</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pipeline" aria-labelledby="how">
+    <div class="wrap">
+      <div class="board board-turf reveal">
+        <div class="board-head">
+          <p class="eyebrow">How it works</p>
+          <h2 class="h-section" id="how">From thrift rack to <span class="serif">listing</span>.</h2>
+          <p>Six steps, each one backed by a dedicated AI assistant or a script it helped me write.</p>
+        </div>
+        <ol class="pipe">
+          <li><span class="n">01 · Thrift Router</span><span class="ic">{{icon:pin}}</span><h3>Plan the route</h3><p>Builds an 8-stop driving route from King George, VA around my time window and minutes per stop, with arrive and leave times. Gas and food stops slot in with the least detour.</p></li>
+          <li><span class="n">02 · Polo Pricing</span><span class="ic">{{icon:compass}}</span><h3>Should I buy it?</h3><p>Snap the front and the tag, then answer a few quick questions. Offline OCR reads the brand and size off the tag, and I get a buy-or-pass call backed by sold and active comps.</p></li>
+          <li><span class="n">03 · Intake</span><span class="ic">{{icon:folder}}</span><h3>Tag every shirt</h3><p>Each shirt gets a SKU sticker, and the sticker is the first photo. That lets the bot tell which photos in a bulk dump belong to which shirt.</p></li>
+          <li><span class="n">04 · Listing Bot</span><span class="ic">{{icon:spark}}</span><h3>Clean the photos</h3><p>Groups the photo dump by SKU and cleans up the background, lighting, and crop. It never edits the shirt or hides a defect, and flaws get their own close-up.</p></li>
+          <li><span class="n">05 · Listing Bot</span><span class="ic">{{icon:pen}}</span><h3>Draft the listing</h3><p>Writes the title, item specifics, description, condition notes, measurements, and a comps-based price. Nothing goes live until I approve it.</p></li>
+          <li><span class="n">06 · Inventory</span><span class="ic">{{icon:layers}}</span><h3>Store, track, re-price</h3><p>Listed photo sets are filed by SKU. Price checks against sold comps, staggered release groups, and relist audits keep the store honest.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="app" aria-labelledby="appt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">The app</p>
+          <h2 class="h-section" id="appt">Polo <span class="serif">Pipeline</span>.</h2>
+        </div>
+        <p>My control panel for the whole workflow. Every page came out of a conversation on the road. Screens are shown with demo data.</p>
+      </div>
+      <div class="pf-screens">
+        <figure class="pf-shot reveal">
+          <div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span>Route Planning</span></div>
+          <img src="/assets/img/work/polo-finder/app-route.webp" width="1400" height="1581" loading="lazy" alt="Route Planning screen: starting location, end point, start time, time available, minutes per stop, stop count and focus on the left, and a map of a numbered demo route on the right">
+        </figure>
+        <div class="pf-screen-copy reveal" style="--d:.06s">
+          <h3>Route Planning</h3>
+          <p>Pick a start, an end, and how much time I have. Thrift Router sends back an ordered route, and the app draws it on a map.</p>
+          <ul class="bullets">
+            <li>A <b>time-fit check</b> warns me when the stops won't fit the window.</li>
+            <li><b>Skip recent</b> leaves out stores I hit in the last two weeks.</li>
+            <li>Choose <b>clothing-heavy</b> stores only, or add church thrifts and local shops.</li>
+            <li>Drag-and-drop <b>pit stops</b>, then open the route in Apple or Google Maps.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pf-screens pf-screens-rev">
+        <figure class="pf-shot reveal">
+          <div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span>Pricing</span></div>
+          <img src="/assets/img/work/polo-finder/app-pricing.webp" width="1400" height="1459" loading="lazy" alt="Pricing screen: a photo drop zone, quick questions for marketplace, brand, size, condition and defects, a 'Should I buy it?' button, and an empty comps table">
+        </figure>
+        <div class="pf-screen-copy reveal" style="--d:.06s">
+          <h3>Pricing: “Should I buy it?”</h3>
+          <p>Standing in the aisle, I drop in photos and answer a few questions about brand, size, condition, and defects like stains, pilling, or collar curl.</p>
+          <ul class="bullets">
+            <li>Polo Pricing returns <b>buy or pass</b>, a max price to pay, a list price, and a confidence level.</li>
+            <li>It always shows the <b>comps behind the call</b>, so I can see why.</li>
+            <li>A <b>Receipt Tracker</b> page reads thrift receipts and tracks days since my last visit and my own store ratings.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="photos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Photo cleanup</p>
+          <h2 class="h-section" id="photos">Clean photos, <span class="serif">honest</span> shirts.</h2>
+        </div>
+        <p>A segmentation model masks the shirt, removes the hanger, and swaps the background. The garment pixels stay untouched. Drag to compare.</p>
+      </div>
+      <div class="ba reveal" style="--pos:50%">
+        <img src="/assets/img/work/polo-finder/back-after.webp" width="1200" height="897" loading="lazy" alt="After: the same polo on a clean, light studio background">
+        <div class="ba-before"><img src="/assets/img/work/polo-finder/back-before.webp" width="1200" height="897" loading="lazy" alt="Before: the back of a blue polo photographed on a gray carpet"></div>
+        <span class="ba-tag ba-tag-l">Before</span><span class="ba-tag ba-tag-r">After</span>
+        <span class="ba-line" aria-hidden="true"><i>{{icon:chev}}{{icon:chev}}</i></span>
+        <input type="range" min="0" max="100" value="50" aria-label="Before and after comparison slider">
+      </div>
+      <figure class="pf-template reveal">
+        <img src="/assets/img/work/polo-finder/listing-template.webp" width="1400" height="813" loading="lazy" alt="Listing photo template: the cleaned polo with numbered chest and length guides and a card comparing the brand size chart to actual measurements">
+        <figcaption>The listing template adds numbered measurement guides and puts the brand's size chart next to the shirt's actual measurements, which I still take by hand.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="bots">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">Under the hood</p>
+        <h2 class="h-section" id="bots">Four bots, one <span class="serif">bridge</span>.</h2>
+      </div>
+      <div class="reveal">
+        <p class="pf-copy">When I tap a live action in the app (plan a route, get a price, process photos, create listings), it drops a job file into a handoff folder. <strong>App Builder</strong> watches that folder, passes the job to the right assistant, and writes the result back to the app's inbox.</p>
+        <div class="hub" aria-label="App Builder relays jobs to Thrift Router, Polo Pricing, and Polo Listing Bot">
+          <div class="hub-app"><span class="mono">App</span>Polo Pipeline</div>
+          <div class="hub-mid"><span class="mono">Relay</span>App Builder</div>
+          <ul class="hub-bots">
+            <li><b>Thrift Router</b><span>plan_route</span></li>
+            <li><b>Polo Pricing</b><span>get_price</span></li>
+            <li><b>Polo Listing Bot</b><span>process_photos · create_listings</span></li>
+          </ul>
+        </div>
+        <h3 class="pf-sub">Rules the bots follow</h3>
+        <ul class="bullets">
+          <li>Never publish a listing without my approval.</li>
+          <li>Never alter a garment's defects, and never invent SKUs or prices.</li>
+          <li>Never write to the original photo folder. Cleaned sets go to their own SKU folder.</li>
+          <li>No price call without photos and comps. Route times are estimates without live traffic.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="wip">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">Work in progress</p>
+        <h2 class="h-section" id="wip">What's <span class="serif">next</span>.</h2>
+      </div>
+      <div class="reveal">
+        <ul class="bullets">
+          <li><b>Live handoffs</b> run only when the bridge server is up. Otherwise the app runs on demo data.</li>
+          <li><b>Measurements</b> are still taken flat by hand. Brand size charts fill in until I measure.</li>
+          <li><b>Storage and retrieval</b>: still figuring out the best way to store listed shirts so I can pull any one quickly.</li>
+          <li><b>Relist audits</b> keep catching wrong sizes, colors, and brands in older titles, so that loop keeps getting tighter.</li>
+        </ul>
+        <div class="chips ct-chips" style="margin-top:28px">
+          <span class="chip">AI assistants</span><span class="chip">Python</span><span class="chip">OCR · RapidOCR</span><span class="chip">rembg · U²-Net</span><span class="chip">OpenCV</span><span class="chip">Leaflet + OpenStreetMap</span><span class="chip">OSRM routing</span><span class="chip">Vanilla JS app</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div class="bars" aria-hidden="true"><i style="height:40px"></i><i style="height:64px"></i><i style="height:52px"></i><i style="height:88px"></i><i style="height:76px"></i><i class="a" style="height:120px"></i><i style="height:104px"></i><i class="a" style="height:150px"></i></div>
+        <div><p class="eyebrow">Talk shop</p><h2>Into thrifting, golf, or <span class="serif accent">automation</span>?</h2></div>
+        <div class="btn-row" style="margin-top:0"><a class="btn btn-primary" href="/contact/">Get in touch {{icon:arrow}}</a></div>
+      </div>
+      <p style="margin:32px 0 0"><a class="text-link" href="/work/ai-projects/">← All AI projects</a></p>
+    </div>
+  </section>
+</main>

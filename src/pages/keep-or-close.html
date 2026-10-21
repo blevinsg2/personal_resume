@@ -1,0 +1,104 @@
+<main id="main" class="ct tr kc">
+  <section class="page-head" style="padding-bottom:clamp(28px,4vw,40px)">
+    <div class="wrap">
+      <div class="crumbs reveal"><a href="/">Home</a><span class="s">/</span><span>Work</span><span class="s">/</span><a href="/work/dashboards/">Dashboards</a><span class="s">/</span><span>Keep or close</span></div>
+      <p class="eyebrow reveal" style="--d:.03s"><span class="dot" aria-hidden="true"></span>Dashboard · Kiosk profitability</p>
+      <h1 class="h-page reveal" style="--d:.06s">Keep or <span class="serif accent">close</span>?</h1>
+      <p class="lede reveal" style="--d:.1s">A rebuild of the kiosk profitability dashboard from my time at a DVD kiosk rental company: which machines still earn their keep once you count what it costs to stock and service them. Every kiosk and number here is fictional example data.</p>
+      <div class="btn-row reveal" style="--d:.14s">
+        <a class="btn btn-primary" href="#kc-dash">Open the dashboard {{icon:arrow}}</a>
+        <a class="btn btn-ghost" href="#kc-story">Read the story</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:clamp(24px,4vw,48px)" aria-labelledby="kc-story">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">The story · DVD kiosk rentals</p>
+        <h2 class="h-section" id="kc-story">Busy isn't the same as <span class="serif">profitable</span>.</h2>
+      </div>
+      <div class="prose reveal">
+        <p class="big">Toward the end of my time at the kiosk company, my team was asked to work out which kiosks were still profitable.</p>
+        <p><strong>Rentals were only half of it.</strong> We looked at DVD rentals against the cost of merchandising (restocking) and servicing (tech repairs) each machine. A kiosk can rent a lot of DVDs and still not be worth it if it's so isolated that the cost of stocking or servicing it eats the money.</p>
+        <p><strong>Market zones.</strong> The company used market zones for the area a merchandiser and a tech covered. Dense areas had many more kiosks and more staff. Places like mid-to-west Texas needed massive amounts of driving.</p>
+        <p><strong>More than one window.</strong> We reviewed performance over 30, 60, 90, and 180 days, so a single slow month didn't close a good kiosk and a single good one didn't save a bad one. One of the more interesting pieces was what each kiosk rented: new-release movies or games versus older stock.</p>
+        <p><strong>Road miles, not a straight line.</strong> This is where my <a class="text-link" href="/work/projects/routing/">routing work</a> came back in. The cost to reach a kiosk depends on the road and the drive time, not the distance on a map.</p>
+        <p><strong>What it changed.</strong> The kiosk profitability dashboard assessed cost and sales across locations, and it informed delivery route optimization, staffing, and the closure of underperforming sites.</p>
+        <p>The dashboard below is not the original dashboard and uses no company data. The zones, depots, kiosks, rentals, and costs are fictional examples. Kiosk pins sit near real Texas town centers for flavor, not at real store addresses. Road distances and drive times are real, from OSRM on OpenStreetMap.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="kc-dash" style="padding-top:clamp(12px,2vw,24px)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Interactive · Example data</p>
+          <h2 class="h-section" id="kc-dash">Every kiosk, <span class="serif">costed</span>.</h2>
+        </div>
+        <p>Pick a zone and a review window. Each kiosk's margin is its rental revenue minus content costs and the cost to serve it. Tap a kiosk on the map or in the table for details.</p>
+      </div>
+
+      <div class="tr-panel kc-panel reveal" id="kc-board">
+        <div class="tr-toolbar">
+          <div class="tr-seg" aria-label="Market zone" id="kc-zones"></div>
+          <div class="tr-seg tr-seg-sm" aria-label="Review period" id="kc-periods"></div>
+          <span class="tr-badge kc-badge">Example data</span>
+        </div>
+        <div class="kc-kpis" id="kc-kpis" aria-live="polite"></div>
+        <div class="kc-body">
+          <div class="tr-map kc-map" id="kc-map" role="region" aria-label="Map of kiosks in the zone"></div>
+          <div class="kc-detail" id="kc-detail" aria-live="polite"></div>
+        </div>
+        <noscript><p class="tr-noscript">The dashboard needs JavaScript.</p></noscript>
+      </div>
+
+      <div class="kc-insight reveal" id="kc-insight" aria-live="polite"></div>
+
+      <div class="tr-panel kc-panel reveal">
+        <div class="kc-th"><h3>Kiosks in <span id="kc-zname"></span></h3><p id="kc-tsub"></p></div>
+        <div class="kc-tablewrap"><table class="kc-table" id="kc-table"></table></div>
+      </div>
+
+      <div class="tr-panel sp-panel sp-assume reveal">
+        <div class="sf-assume-h"><span class="tr-badge">Example assumptions</span><button type="button" class="text-link sf-reset" data-kc-reset>Reset</button></div>
+        <div class="kc-fields" id="kc-fields"></div>
+      </div>
+      <p class="tr-note reveal">How it works: revenue = rentals × an example price per rental (new-release movie $2.00, new game $3.50, older catalog $1.25). Content costs take an example share of that revenue (55%, 50%, and 20%), which is why older stock earns more per dollar. Each merchandising or tech visit is charged the road leg to the kiosk's nearest stop on a route (another kiosk or the depot) and back, at the drive time × labor rate plus miles × cost per mile, plus 20 minutes on site for a restock or 60 for a tech repair. Tech visits per month are set per kiosk. Restocking less than twice a week loses some new-release and game rentals to empty slots (15% at once a week, 35% at every other week). Verdicts use margin per 30 days. The "absorbs" estimate assumes the nearest kiosk keeps 40% of the closed kiosk's rentals, minus one point per road mile between them. Road miles and drive times are real OSRM routes on OpenStreetMap; every kiosk, rental, and cost is a fictional example.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="kc-org">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Beyond kiosks</p>
+          <h2 class="h-section" id="kc-org">Why this matters for <span class="serif">organizations</span>.</h2>
+        </div>
+        <p>Any business with a footprint, from stores and branches to machines and routes, has locations that look busy and quietly lose money.</p>
+      </div>
+      <div class="qn-uses tr-uses">
+        <article class="reveal"><span class="mono">01</span><h3>Count the cost to serve</h3><p>Revenue by location is easy to report. Margin after the trucks, the labor, and the miles is what decides whether a location is worth it.</p></article>
+        <article class="reveal" style="--d:.04s"><span class="mono">02</span><h3>Geography is a cost line</h3><p>The same machine costs very different amounts to run in a metro and in open country. Road miles and drive time belong in the model.</p></article>
+        <article class="reveal" style="--d:.08s"><span class="mono">03</span><h3>Look across windows</h3><p>30, 60, 90, and 180 days together separate a slow month from a real decline, so one bad stretch doesn't close a good location.</p></article>
+        <article class="reveal"><span class="mono">04</span><h3>Mix matters</h3><p>Two locations with the same volume can earn very different margins depending on what they sell.</p></article>
+        <article class="reveal" style="--d:.04s"><span class="mono">05</span><h3>Watch before close</h3><p>A middle verdict gives operations room to try fewer visits or a different mix before anyone pulls a location.</p></article>
+        <article class="reveal" style="--d:.08s"><span class="mono">06</span><h3>Decisions ripple</h3><p>Closing a location moves demand, routes, and staffing. The same view can inform where trucks go and how a zone is staffed.</p></article>
+      </div>
+      <p class="qn-credit reveal">Example data only: the zones, depots, kiosks, rentals, and costs are fictional and editable. Road distances and drive times: OSRM on OpenStreetMap data, © OpenStreetMap contributors (ODbL). Map tiles © OpenStreetMap contributors. Built by me with AI. Updated Oct 2026.</p>
+      <div class="tags reveal"><span class="tag">Profitability</span><span class="tag">Cost to serve</span><span class="tag">Routing</span><span class="tag">Leaflet</span><span class="tag">OSRM</span><span class="tag">Vanilla JS</span></div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div class="bars" aria-hidden="true"><i style="height:40px"></i><i style="height:64px"></i><i style="height:52px"></i><i style="height:88px"></i><i style="height:76px"></i><i class="a" style="height:120px"></i><i style="height:104px"></i><i class="a" style="height:150px"></i></div>
+        <div><p class="eyebrow">Talk shop</p><h2>Locations, routes, and <span class="serif accent">margins</span>?</h2></div>
+        <div class="btn-row" style="margin-top:0"><a class="btn btn-primary" href="/contact/">Get in touch {{icon:arrow}}</a></div>
+      </div>
+      <p style="margin:32px 0 0"><a class="text-link" href="/work/dashboards/">← All dashboards</a></p>
+    </div>
+  </section>
+</main>

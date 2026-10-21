@@ -1,0 +1,138 @@
+<main id="main" class="ct tr">
+  <section class="page-head" style="padding-bottom:clamp(28px,4vw,40px)">
+    <div class="wrap">
+      <div class="crumbs reveal"><a href="/">Home</a><span class="s">/</span><span>Work</span><span class="s">/</span><a href="/work/projects/">Projects</a><span class="s">/</span><span>Routing</span></div>
+      <p class="eyebrow reveal" style="--d:.03s"><span class="dot" aria-hidden="true"></span>Case study · Routing</p>
+      <h1 class="h-page reveal" style="--d:.06s">Closer isn't always <span class="serif accent">quicker</span>.</h1>
+      <p class="lede reveal" style="--d:.1s">A case study from my delivery and field-service routing work at a home-improvement retailer and a DVD kiosk rental company, rebuilt with public data: how traffic around Washington, DC and Richmond rises and falls through the week, and why the "nearest" stop depends on how you measure: a straight line, the road, or the clock.</p>
+      <div class="btn-row reveal" style="--d:.14s">
+        <a class="btn btn-primary" href="#tr-traffic">See the traffic {{icon:arrow}}</a>
+        <a class="btn btn-ghost" href="#tr-route">Try the routing demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:clamp(24px,4vw,48px)" aria-labelledby="tr-why">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">The story</p>
+        <h2 class="h-section" id="tr-why">Miles aren't <span class="serif">minutes</span>.</h2>
+      </div>
+      <div class="prose reveal">
+        <p class="big">At a home-improvement retailer and later a DVD kiosk rental company, I worked on delivery and routing optimization, and two ideas drove most of it.</p>
+        <p><strong>Use real road distance, not a straight line.</strong> Straight-line (Haversine) distance is quick to compute, but a river or a missing bridge can turn a short hop into a long drive.</p>
+        <p><strong>Add historical traffic.</strong> Being 20 miles closer doesn't always mean quicker once time of day and traffic are factored in.</p>
+        <p>At the retailer it was delivery, overwhelmingly appliance deliveries. The kiosk company ran far more than DVD kiosks: phone trade-in kiosks, trading-card vending machines, charging stations, and more. Merchandisers restocked the machines and service techs repaired or serviced them. Tech routing needed more work, because it factored in what each tech was working on. A screen replacement takes longer than a regular cleaning, and a long job pushes every later drive into a different hour of traffic. Try the service tech mode in the demo below to see it.</p>
+        <p>The same road-miles thinking later fed a bigger question at the kiosk company: which kiosks were worth keeping once you counted the drive to stock and service them. See the <a class="text-link" href="/work/dashboards/keep-or-close/">Keep or close dashboard</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="tr-traffic">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Real counts</p>
+          <h2 class="h-section" id="tr-traffic">When the roads <span class="serif">fill up</span>.</h2>
+        </div>
+        <p>Average vehicles per hour on major corridors, by day of week and hour, from {{tr_year}} roadside counters. Drag the slider or press play.</p>
+      </div>
+      <div class="tr-panel reveal" id="tr-heat">
+        <div class="tr-toolbar">
+          <div class="tr-seg" role="tablist" aria-label="City">
+            <button type="button" role="tab" aria-selected="true" data-tr-city="dc">Washington, DC</button>
+            <button type="button" role="tab" aria-selected="false" data-tr-city="ric">Richmond</button>
+          </div>
+          <div class="tr-seg tr-seg-sm" aria-label="Direction">
+            <button type="button" aria-pressed="true" data-tr-dir="0">NB / EB</button>
+            <button type="button" aria-pressed="false" data-tr-dir="1">SB / WB</button>
+          </div>
+          <div class="tr-legend" aria-hidden="true"><span>Quiet</span><i></i><span>Busiest</span></div>
+        </div>
+        <div class="tr-time">
+          <button type="button" class="tr-play" data-tr-play aria-label="Play through the week">{{icon:play}}</button>
+          <div class="tr-slider">
+            <input type="range" min="0" max="167" step="1" value="41" id="tr-hour" aria-label="Day and hour">
+            <div class="tr-days" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+          </div>
+          <output class="tr-now" for="tr-hour" id="tr-now">Tue 5 PM</output>
+        </div>
+        <div class="tr-grids" id="tr-grids" aria-live="polite"></div>
+        <noscript><p class="tr-noscript">The heat strips need JavaScript.</p></noscript>
+      </div>
+      <p class="tr-note reveal">Each strip is one direction of one corridor: 7 rows (Sun to Sat) by 24 hours, shaded against that corridor's busiest hour. Volume is not speed: a jammed freeway can carry <em>fewer</em> cars per hour than a busy, moving one, which is why some peaks look flat. Powhite Parkway is missing because there was no continuous counter on it in the {{tr_year}} federal data.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="tr-route">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Real routes</p>
+          <h2 class="h-section" id="tr-route">Which stop is <span class="serif">nearest</span>?</h2>
+        </div>
+        <p>One start point and a handful of public landmarks. Switch how distance is measured and watch the ranking change, or plan a service tech's day.</p>
+      </div>
+      <div class="tr-panel tr-route reveal" id="tr-routing" data-modeled="{{tr_modeled}}">
+        <div class="tr-toolbar">
+          <div class="tr-seg" role="tablist" aria-label="City">
+            <button type="button" role="tab" aria-selected="true" data-tr-rcity="dc">Washington, DC</button>
+            <button type="button" role="tab" aria-selected="false" data-tr-rcity="ric">Richmond</button>
+          </div>
+          <div class="tr-seg tr-mode" aria-label="Plan for">
+            <button type="button" aria-pressed="true" data-tr-mode="delivery">Delivery</button>
+            <button type="button" aria-pressed="false" data-tr-mode="tech">Service tech</button>
+          </div>
+          <div class="tr-seg tr-metric" aria-label="Measure by">
+            <button type="button" aria-pressed="false" data-tr-metric="crow">Straight line</button>
+            <button type="button" aria-pressed="false" data-tr-metric="road">Road miles</button>
+            <button type="button" aria-pressed="true" data-tr-metric="time">Drive time</button>
+          </div>
+        </div>
+        {{tr_modeled_controls}}
+        <div class="tr-jobs" id="tr-jobs" aria-label="Example job durations"></div>
+        <div class="tr-route-body">
+          <div class="tr-map" id="tr-map" aria-label="Map of the start point, stops, and routes"></div>
+          <div class="tr-rank">
+            <p class="tr-verdict" id="tr-verdict"></p>
+            <ol id="tr-list"></ol>
+          </div>
+        </div>
+      </div>
+      <p class="tr-note reveal">Straight line is Haversine distance. Road miles and drive time come from OSRM routes on OpenStreetMap roads, precomputed and stored with the site. OSRM drive times assume free-flowing traffic.{{tr_modeled_note}} Service tech mode uses example job durations, not real data, tries every visit order for one tech, and ends the day at the last job.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="tr-org">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Beyond the map</p>
+          <h2 class="h-section" id="tr-org">Why this matters for <span class="serif">organizations</span>.</h2>
+        </div>
+        <p>The same two ideas, real road distance and time of day, show up anywhere people or trucks have to be somewhere.</p>
+      </div>
+      <div class="qn-uses tr-uses">
+        <article class="reveal"><span class="mono">01</span><h3>Delivery windows</h3><p>A promised two-hour window is only as good as the drive-time estimate behind it. Rush hour belongs in the plan, not in the excuse.</p></article>
+        <article class="reveal" style="--d:.04s"><span class="mono">02</span><h3>Field service</h3><p>Techs aren't interchangeable stops. A long repair pushes every later visit into a different hour of traffic, so the job type should shape the route.</p></article>
+        <article class="reveal" style="--d:.08s"><span class="mono">03</span><h3>Restock routes</h3><p>Merchandisers visit the same machines on a cycle. Small, repeatable savings per stop add up when the route runs every week.</p></article>
+        <article class="reveal"><span class="mono">04</span><h3>Territory design</h3><p>Drawing service areas by straight-line radius splits neighborhoods that a river or highway already divides. Drive-time areas follow the roads.</p></article>
+        <article class="reveal" style="--d:.04s"><span class="mono">05</span><h3>Honest ETAs</h3><p>Customers notice when "15 minutes away" turns into 40. Time-of-day aware estimates set expectations people can trust.</p></article>
+        <article class="reveal" style="--d:.08s"><span class="mono">06</span><h3>Better questions</h3><p>Once distance and traffic are modeled well, you can ask the real question: not "who is closest?" but "who can get there soonest?"</p></article>
+      </div>
+      <p class="qn-credit reveal">Data: traffic volumes from the <a class="text-link" href="https://www.fhwa.dot.gov/policyinformation/tables/tmasdata/" target="_blank" rel="noopener">FHWA Travel Monitoring Analysis System</a> (VDOT continuous count stations, {{tr_year}}, all months). Routes from <a class="text-link" href="https://project-osrm.org/" target="_blank" rel="noopener">OSRM</a> on <a class="text-link" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> data; landmark coordinates from OpenStreetMap Nominatim. Map tiles © OpenStreetMap contributors; map by Leaflet. Built by me with AI. Updated {{tr_updated}}.</p>
+      <div class="tags reveal"><span class="tag">Routing</span><span class="tag">Haversine vs road</span><span class="tag">Leaflet</span><span class="tag">OSRM</span><span class="tag">FHWA TMAS</span><span class="tag">Python</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div class="bars" aria-hidden="true"><i style="height:40px"></i><i style="height:64px"></i><i style="height:52px"></i><i style="height:88px"></i><i style="height:76px"></i><i class="a" style="height:120px"></i><i style="height:104px"></i><i class="a" style="height:150px"></i></div>
+        <div><p class="eyebrow">Talk shop</p><h2>Routing, delivery, or field <span class="serif accent">service</span>?</h2></div>
+        <div class="btn-row" style="margin-top:0"><a class="btn btn-primary" href="/contact/">Get in touch {{icon:arrow}}</a></div>
+      </div>
+      <p style="margin:32px 0 0"><a class="text-link" href="/work/projects/">← All projects</a></p>
+    </div>
+  </section>
+</main>

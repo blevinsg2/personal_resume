@@ -1,0 +1,65 @@
+<main id="main">
+  <section class="page-head" style="padding-bottom:clamp(24px,4vw,40px)">
+    <div class="wrap">
+      <div class="crumbs reveal"><a href="/">Home</a><span class="s">/</span><span>Contact</span></div>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="wrap contact-grid">
+      <div class="contact-aside">
+        <h1 class="h-page reveal">Let's <span class="serif accent">connect</span>.</h1>
+        <p class="lede reveal" style="--d:.05s">Whether it's a role, a project, or a dashboard that needs rethinking, send a note and I'll get back to you.</p>
+        <ul class="info reveal" style="--d:.1s">
+          <li><span class="k">Location</span><span>King George, Virginia</span></li>
+          <li><span class="k">Focus</span><span>Analytics · Business Intelligence · Data Strategy</span></li>
+          <li><span class="k">Time zone</span><span>Eastern Time (ET)</span></li>
+        </ul>
+      </div>
+
+      <div class="form-card reveal" style="--d:.1s">
+        <h2>Send a message</h2>
+        <p>All fields are required. Your message comes straight to me.</p>
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="f03d92f9-4191-4c4f-8369-5eda3456ce16">
+          <input type="hidden" name="subject" value="New message from garyleeblevinsjr.com">
+          <input type="hidden" name="from_name" value="garyleeblevinsjr.com">
+          <input type="hidden" name="redirect" value="https://garyleeblevinsjr.com/contact/thanks/">
+          <div class="row-2">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required maxlength="100" aria-describedby="e-name">
+              <div class="err" id="e-name" aria-live="polite">{{icon:alert}}<span class="err-text"></span></div>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Your email address" required maxlength="200" aria-describedby="e-email">
+              <div class="err" id="e-email" aria-live="polite">{{icon:alert}}<span class="err-text"></span></div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-msg">Message</label>
+            <textarea id="f-msg" name="message" rows="6" placeholder="What would you like to talk about?" required maxlength="2000" aria-describedby="e-msg"></textarea>
+            <span class="count" aria-hidden="true">0 / 2000</span>
+            <div class="err" id="e-msg" aria-live="polite">{{icon:alert}}<span class="err-text"></span></div>
+          </div>
+          <!-- Honeypot: hidden from people, tempting for bots. Leave unchecked. -->
+          <div class="hp" aria-hidden="true">
+            <label for="f-botcheck">Leave this unchecked</label>
+            <input id="f-botcheck" name="botcheck" type="checkbox" tabindex="-1" autocomplete="off" style="display:none">
+          </div>
+          <div class="form-actions">
+            <span class="fine">Your details are only used to reply to your message.</span>
+            <button class="btn btn-primary btn-submit" type="submit"><span class="lbl">Send message</span>{{icon:send}}<span class="spin" aria-hidden="true"></span></button>
+          </div>
+          <div class="form-status" role="status" aria-live="polite"></div>
+        </form>
+        <div class="form-success" aria-live="polite">
+          <div class="check">{{icon:check}}</div>
+          <h2>Message sent.</h2>
+          <p>Thanks for reaching out. I'll get back to you soon.</p>
+          <button class="btn btn-ghost" type="button" data-send-another>Send another</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

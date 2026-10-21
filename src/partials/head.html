@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta name="author" content="Gary Lee Blevins Jr.">
+<link rel="canonical" href="{{site_url}}{{path}}">
+<meta name="theme-color" content="#fafaf8">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="{{og_type}}">
+<meta property="og:site_name" content="Gary Blevins">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{site_url}}{{path}}">
+<meta property="og:image" content="{{site_url}}{{og_image}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{title}}">
+<meta name="twitter:description" content="{{description}}">
+<meta name="twitter:image" content="{{site_url}}{{og_image}}">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>(function(){try{var t=localStorage.getItem("theme");if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t);if(t==="dark"){document.querySelector('meta[name="theme-color"]').setAttribute("content","#0b0c0e")}}catch(e){}document.documentElement.classList.add("js")})();</script>
+<link rel="stylesheet" href="/assets/css/site.css?v={{version}}">
+{{extra_head}}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>

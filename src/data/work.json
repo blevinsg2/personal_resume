@@ -1,0 +1,251 @@
+{
+  "projects": [
+    {
+      "title": "From manual pulls to one risk story",
+      "summary": "My Enterprise Risk Management work at a national auto insurer: from a two-day weekly manual process to hourly automated refreshes, data quality dashboards, Copilot data agents, and the Risk & Control Hub.",
+      "kind": "Case study · Enterprise risk",
+      "year": 2026,
+      "tags": [
+        "Power BI",
+        "Data automation",
+        "Snowflake"
+      ],
+      "image": "/assets/img/work/risk-data/card.webp",
+      "image_alt": "Five-stage staircase from automated pulls to the Risk & Control Hub",
+      "url": "/work/projects/risk-data-transformation/"
+    },
+    {
+      "title": "Staffing to demand",
+      "summary": "Part 1 of my home-improvement retail story: staff an example store day to customer traffic and watch coverage, sales, and payroll respond.",
+      "kind": "Case study · Retail labor",
+      "year": 2026,
+      "tags": [
+        "Workforce planning",
+        "Payroll analytics",
+        "Vanilla JS"
+      ],
+      "image": "/assets/img/work/staffing/card.webp",
+      "image_alt": "Hourly customer traffic curve over staffing bars for an example store day",
+      "url": "/work/projects/staffing-to-demand/"
+    },
+    {
+      "title": "Sales performance",
+      "summary": "Part 2 of my home-improvement retail story: forecasts cascade into specialist goals, 12-month scorecards, and a coaching opportunity list.",
+      "kind": "Case study · Sales",
+      "year": 2026,
+      "tags": [
+        "Goal setting",
+        "Scorecards",
+        "Coaching"
+      ],
+      "image": "/assets/img/work/sales-performance/card.webp",
+      "image_alt": "Specialist scorecard with sparklines against goal for an example store",
+      "url": "/work/projects/sales-performance/"
+    },
+    {
+      "title": "Incentives",
+      "summary": "Part 3 of my home-improvement retail story: a forecast-funded bonus pool, what it takes to unlock it, cliff vs tiered payouts, and leadership levers like a credit campaign.",
+      "kind": "Case study · Incentives",
+      "year": 2026,
+      "tags": [
+        "Incentive design",
+        "Profit sharing",
+        "Vanilla JS"
+      ],
+      "image": "/assets/img/work/incentives/card.webp",
+      "image_alt": "Bonus pool payout curves comparing a cliff at 100% with tiered payouts",
+      "url": "/work/projects/incentives/"
+    },
+    {
+      "title": "Routing: closer isn't always quicker",
+      "summary": "From my routing work in home-improvement retail and DVD kiosk rentals: real DC and Richmond traffic counts, straight-line vs road vs drive time, and a service-tech route planner.",
+      "kind": "Case study · Routing",
+      "year": 2026,
+      "tags": [
+        "Routing",
+        "Leaflet",
+        "FHWA data"
+      ],
+      "image": "/assets/img/work/traffic-routing/card.webp",
+      "image_alt": "Heat strips of hourly traffic volume on Washington, DC corridors",
+      "url": "/work/projects/routing/"
+    }
+  ],
+  "ai_projects": [
+    {
+      "title": "The Wolf of Wall Bot",
+      "summary": "Just for fun: I gave an AI bot a small brokerage account and two personalities, Jordan Belfort mode and Warren Buffett mode, then stepped back. Tracked week by week against SPY and a savings rate. Not financial advice.",
+      "kind": "AI experiment",
+      "year": 2026,
+      "badge": "New",
+      "tags": [
+        "AI agents",
+        "Just for fun",
+        "Vanilla JS + SVG"
+      ],
+      "image": "/assets/img/work/agentic-trading/card.webp",
+      "image_alt": "Index chart frame for the Belfort and Buffett bot modes, SPY, and a savings rate, all starting at 100",
+      "url": "/work/ai-projects/agentic-trading/"
+    },
+    {
+      "title": "ChalkTalkFB",
+      "summary": "A daily YouTube Shorts channel that teaches one football concept in under 60 seconds, built with AI end to end.",
+      "kind": "YouTube Shorts",
+      "year": 2026,
+      "tags": [
+        "AI",
+        "Python",
+        "ffmpeg",
+        "Text-to-speech"
+      ],
+      "image": "/assets/img/work/chalktalkfb/card.webp",
+      "image_alt": "ChalkTalkFB chalkboard banner with plays drawn in chalk",
+      "url": "/work/ai-projects/chalktalkfb/"
+    },
+    {
+      "title": "Polo Finder",
+      "summary": "Thrifting golf polos from courses across the U.S., with an AI-built pipeline for routes, pricing, photo cleanup, and listings. Work in progress.",
+      "kind": "Reselling pipeline",
+      "year": 2026,
+      "tags": [
+        "AI agents",
+        "Python",
+        "OCR",
+        "Computer vision"
+      ],
+      "image": "/assets/img/work/polo-finder/card.webp",
+      "image_alt": "Before and after: a polo photographed on carpet, then cleaned onto a studio background",
+      "url": "/work/ai-projects/polo-finder/"
+    }
+  ],
+  "dashboards": [
+    {
+      "title": "Keep or close: kiosk profitability",
+      "summary": "From my DVD kiosk rental work: which kiosks earn their keep once restocking and service are costed by road miles. Three example Texas zones, 30 to 180-day windows, Keep / Watch / Close verdicts.",
+      "kind": "Dashboard · Profitability",
+      "year": 2026,
+      "tags": [
+        "Profitability",
+        "Leaflet",
+        "OSRM"
+      ],
+      "image": "/assets/img/work/keep-or-close/card.webp",
+      "image_alt": "Kiosk profitability dashboard with a West Texas map and Keep, Watch, Close verdicts",
+      "url": "/work/dashboards/keep-or-close/"
+    },
+    {
+      "title": "AIPD: who to call next",
+      "summary": "From my facilities software work: customers matched to a full market list and enriched with third-party data, so each AE sees their own territory, upsell picks, and scored new prospects.",
+      "kind": "Dashboard · Sales & marketing",
+      "year": 2026,
+      "tags": [
+        "Salesforce",
+        "Lead scoring",
+        "Leaflet"
+      ],
+      "image": "/assets/img/work/aipd/card.webp",
+      "image_alt": "AIPD dashboard with a territory map, KPIs, and a ranked list of scored prospects",
+      "url": "/work/dashboards/aipd/"
+    }
+  ],
+  "visuals": [
+    {
+      "title": "Launch Globe",
+      "summary": "Just for fun, because I love rockets: every orbital launch attempt since Sputnik in 1957, from every provider worldwide, lifting off a spinning 3D globe. SpaceX and Rocket Lab get the spotlight, plus a calendar of upcoming launches with links to watch live.",
+      "kind": "Interactive visual",
+      "year": 2026,
+      "tags": [
+        "3D globe",
+        "Canvas + vanilla JS",
+        "Just for fun"
+      ],
+      "image": "/assets/img/work/launch-globe/card.webp",
+      "image_alt": "Dotted globe with color-coded rockets flying off launch sites around the world",
+      "url": "/work/visuals/launch-globe/"
+    },
+    {
+      "title": "Box office, 1980–2025",
+      "summary": "45 years of chart-topping movies: worldwide box office by genre and lead actor, and what it costs to make them, with a play button to watch it unfold.",
+      "kind": "Interactive visual",
+      "year": 2026,
+      "tags": [
+        "Bar chart race",
+        "Vanilla JS + SVG",
+        "Wikipedia + BLS"
+      ],
+      "image": "/assets/img/work/box-office/card.webp",
+      "image_alt": "Stacked area chart of worldwide box office by genre from 1980 to 2025",
+      "url": "/work/visuals/box-office/"
+    },
+    {
+      "title": "QB Network",
+      "summary": "Who catches Jayden Daniels' passes? A draggable, force-directed graph of every 2026 NFL completion, with his receivers, every other passer who threw to them, and a throw map of where his passes go.",
+      "kind": "Network graph",
+      "year": 2026,
+      "tags": [
+        "Force-directed",
+        "Vanilla JS",
+        "nflverse"
+      ],
+      "image": "/assets/img/work/qb-network/card.webp",
+      "image_alt": "Network graph with Jayden Daniels in the center, lines to his receivers, and other quarterbacks on the edges",
+      "url": "/work/visuals/qb-network/"
+    },
+    {
+      "title": "Staffing to demand",
+      "summary": "Part 1 of my home-improvement retail story: staff an example store day to customer traffic and watch coverage, sales, and payroll respond.",
+      "kind": "Case study · Retail labor",
+      "year": 2026,
+      "tags": [
+        "Workforce planning",
+        "Payroll analytics",
+        "Vanilla JS"
+      ],
+      "image": "/assets/img/work/staffing/card.webp",
+      "image_alt": "Hourly customer traffic curve over staffing bars for an example store day",
+      "url": "/work/projects/staffing-to-demand/"
+    },
+    {
+      "title": "Sales performance",
+      "summary": "Part 2 of my home-improvement retail story: forecasts cascade into specialist goals, 12-month scorecards, and a coaching opportunity list.",
+      "kind": "Case study · Sales",
+      "year": 2026,
+      "tags": [
+        "Goal setting",
+        "Scorecards",
+        "Coaching"
+      ],
+      "image": "/assets/img/work/sales-performance/card.webp",
+      "image_alt": "Specialist scorecard with sparklines against goal for an example store",
+      "url": "/work/projects/sales-performance/"
+    },
+    {
+      "title": "Incentives",
+      "summary": "Part 3 of my home-improvement retail story: a forecast-funded bonus pool, what it takes to unlock it, cliff vs tiered payouts, and leadership levers like a credit campaign.",
+      "kind": "Case study · Incentives",
+      "year": 2026,
+      "tags": [
+        "Incentive design",
+        "Profit sharing",
+        "Vanilla JS"
+      ],
+      "image": "/assets/img/work/incentives/card.webp",
+      "image_alt": "Bonus pool payout curves comparing a cliff at 100% with tiered payouts",
+      "url": "/work/projects/incentives/"
+    },
+    {
+      "title": "Routing: closer isn't always quicker",
+      "summary": "From my routing work in home-improvement retail and DVD kiosk rentals: real DC and Richmond traffic counts, straight-line vs road vs drive time, and a service-tech route planner.",
+      "kind": "Case study · Routing",
+      "year": 2026,
+      "tags": [
+        "Routing",
+        "Leaflet",
+        "FHWA data"
+      ],
+      "image": "/assets/img/work/traffic-routing/card.webp",
+      "image_alt": "Heat strips of hourly traffic volume on Washington, DC corridors",
+      "url": "/work/projects/routing/"
+    }
+  ]
+}

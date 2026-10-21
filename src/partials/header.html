@@ -1,0 +1,29 @@
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Gary Blevins, home">
+      <span class="brand-mark" aria-hidden="true"><span>GB</span></span>
+      <span>Gary Blevins <small>/ analytics</small></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="menu">
+        {{desktop_menu}}
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">
+        {{icon:sun}}{{icon:moon}}
+      </button>
+      <button class="icon-btn menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+        {{icon:menu}}
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobile-panel" id="mobile-menu">
+  <nav aria-label="Mobile">
+    <ul class="m-list">
+      {{mobile_menu}}
+    </ul>
+  </nav>
+  <div class="m-foot"><span>King George, VA</span><span class="mono">garyleeblevinsjr.com</span></div>
+</div>

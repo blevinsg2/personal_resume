@@ -1,0 +1,214 @@
+<main id="main" class="bo-page">
+  <section class="page-head" style="padding-bottom:clamp(28px,4vw,40px)">
+    <div class="wrap">
+      <div class="crumbs reveal"><a href="/">Home</a><span class="s">/</span><span>Work</span><span class="s">/</span><a href="/work/visuals/">Interactive Visuals</a><span class="s">/</span><span>Box office</span></div>
+      <p class="eyebrow reveal" style="--d:.03s"><span class="dot" aria-hidden="true"></span>Interactive Visual · {{bo_y0}}–{{bo_y1}}</p>
+      <h1 class="h-page reveal" style="--d:.06s">Box office, by the <span class="serif accent">numbers</span>.</h1>
+      <p class="lede reveal" style="--d:.1s">I'm a huge movie fan, and I've always wondered how much the business behind the movies I grew up on has changed. So I pulled {{bo_n}} of the biggest films from {{bo_y0}} to {{bo_y1}}, then sorted them by genre, lead actor, and what they cost to make. Press play and watch it unfold.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0" aria-label="Box office explorer">
+    <div class="wrap">
+      <div class="bo reveal" id="bo">
+        <div class="bo-top">
+          <div class="bo-tabs" role="tablist" aria-label="Views">
+            <button type="button" role="tab" id="bo-tab-genre" aria-controls="bo-p-genre" aria-selected="true" data-tab="genre">By genre</button>
+            <button type="button" role="tab" id="bo-tab-actor" aria-controls="bo-p-actor" aria-selected="false" tabindex="-1" data-tab="actor">Lead actors</button>
+            <button type="button" role="tab" id="bo-tab-cost" aria-controls="bo-p-cost" aria-selected="false" tabindex="-1" data-tab="cost">Cost<span class="bo-long"> of making movies</span></button>
+          </div>
+          <div class="bo-global">
+            <div class="bo-seg" role="group" aria-label="Dollars">
+              <button type="button" data-real="0" aria-pressed="false">Nominal</button>
+              <button type="button" data-real="1" aria-pressed="true">{{bo_base}} dollars</button>
+            </div>
+            <div class="bo-yr" role="group" aria-label="Year range">
+              <label><span>From</span><input type="range" id="bo-y0" min="{{bo_y0}}" max="{{bo_y1}}" value="{{bo_y0}}" step="1" aria-label="First year"><output for="bo-y0" id="bo-y0o">{{bo_y0}}</output></label>
+              <label><span>To</span><input type="range" id="bo-y1" min="{{bo_y0}}" max="{{bo_y1}}" value="{{bo_y1}}" step="1" aria-label="Last year"><output for="bo-y1" id="bo-y1o">{{bo_y1}}</output></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Genre -->
+        <div class="bo-panel" role="tabpanel" id="bo-p-genre" aria-labelledby="bo-tab-genre">
+          <div class="bo-bar">
+            <h2 class="bo-h">Worldwide box office by primary genre</h2>
+            <div class="bo-seg" role="group" aria-label="Scale">
+              <button type="button" data-share="0" aria-pressed="true">Total</button>
+              <button type="button" data-share="1" aria-pressed="false">Share of year</button>
+            </div>
+          </div>
+          <div class="bo-legend" id="bo-legend" role="group" aria-label="Isolate a genre"></div>
+          <div class="bo-grid2">
+            <div class="bo-stage">
+              <svg id="bo-g-svg" viewBox="0 0 640 340" tabindex="0" role="img" aria-label="Stacked area chart of worldwide box office by genre and year. Use the left and right arrow keys to move between years, up and down to change genre."></svg>
+              <div class="bo-tip" id="bo-g-tip" hidden></div>
+            </div>
+            <div class="bo-raceb">
+              <div class="bo-raceh"><span id="bo-g-rlabel">2025</span>
+                <div class="bo-seg sm" role="group" aria-label="Race measure">
+                  <button type="button" data-race="year" aria-pressed="true">That year</button>
+                  <button type="button" data-race="cum" aria-pressed="false">Running total</button>
+                </div>
+              </div>
+              <div class="bo-race" id="bo-g-race" aria-live="off"></div>
+            </div>
+          </div>
+          <div class="bo-player" data-player="genre">
+            <button type="button" class="bo-play" aria-label="Play">▶</button>
+            <input type="range" class="bo-scrub" aria-label="Year" step="1">
+            <output class="bo-yl"></output>
+            <label class="bo-spd"><span class="visually-hidden">Speed</span><select aria-label="Playback speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label>
+          </div>
+          <p class="bo-hint">Hover or tap the chart for the top film. Click a genre to isolate it. <span class="kbd">Space</span> plays or pauses, <span class="kbd">←</span> <span class="kbd">→</span> step a year.</p>
+        </div>
+
+        <!-- Actors -->
+        <div class="bo-panel" role="tabpanel" id="bo-p-actor" aria-labelledby="bo-tab-actor" hidden>
+          <div class="bo-bar">
+            <h2 class="bo-h">Lead actors: running total of worldwide box office</h2>
+            <form class="bo-pick" id="bo-pick" autocomplete="off">
+              <label class="visually-hidden" for="bo-actor-in">Add an actor to compare</label>
+              <input id="bo-actor-in" list="bo-actors" placeholder="Add an actor (up to 3)">
+              <datalist id="bo-actors"></datalist>
+              <button type="submit" class="bo-btn">Add</button>
+            </form>
+          </div>
+          <div class="bo-chips" id="bo-chips" aria-live="polite"></div>
+          <div class="bo-grid2">
+            <div class="bo-stage">
+              <svg id="bo-a-svg" viewBox="0 0 640 340" role="img" aria-label="Step chart of each selected actor's cumulative worldwide box office as top-billed lead. The table below lists the same films."></svg>
+              <div class="bo-tip" id="bo-a-tip" hidden></div>
+            </div>
+            <div class="bo-raceb">
+              <div class="bo-raceh"><span>Top leads, running total through <b id="bo-a-rlabel">2025</b></span></div>
+              <div class="bo-race" id="bo-a-race" aria-live="off"></div>
+            </div>
+          </div>
+          <div class="bo-player" data-player="actor">
+            <button type="button" class="bo-play" aria-label="Play">▶</button>
+            <input type="range" class="bo-scrub" aria-label="Year" step="1">
+            <output class="bo-yl"></output>
+            <label class="bo-spd"><span class="visually-hidden">Speed</span><select aria-label="Playback speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label>
+          </div>
+          <div class="bo-cols">
+            <div>
+              <h3 class="bo-h3">Top leads by decade</h3>
+              <div class="bo-seg sm" role="group" aria-label="Decade" id="bo-dec"></div>
+              <ol class="bo-board" id="bo-board"></ol>
+            </div>
+            <div>
+              <h3 class="bo-h3">Their films</h3>
+              <p class="bo-astatus" id="bo-a-status" role="status" aria-live="polite"></p>
+              <div class="bo-tablewrap"><table class="bo-table" id="bo-a-table"><caption class="visually-hidden">Films of the selected actors</caption><thead><tr><th scope="col">Film</th><th scope="col">Lead</th><th scope="col" class="n">Year</th><th scope="col" class="n">Worldwide</th></tr></thead><tbody></tbody></table></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cost -->
+        <div class="bo-panel" role="tabpanel" id="bo-p-cost" aria-labelledby="bo-tab-cost" hidden>
+          <div class="bo-bar"><h2 class="bo-h">What it costs to make them</h2><p class="bo-sub" id="bo-c-cmp"></p></div>
+          <dl class="bo-kpis" id="bo-kpis"></dl>
+          <div class="bo-cols">
+            <div class="bo-card">
+              <div class="bo-bar"><h3 class="bo-h3">Budgets per year</h3>
+                <div class="bo-seg sm" role="group" aria-label="Budget measure">
+                  <button type="button" data-cm="med" aria-pressed="true">Median</button>
+                  <button type="button" data-cm="tot" aria-pressed="false">Total</button>
+                  <button type="button" data-cm="s100" aria-pressed="false">$100M+ share</button>
+                  <button type="button" data-cm="n" aria-pressed="false">Films</button>
+                </div>
+              </div>
+              <div class="bo-stage"><svg id="bo-c-svg" viewBox="0 0 560 320" tabindex="0" role="img" aria-label="Bar chart of production budgets per year. Use the arrow keys to move between years."></svg><div class="bo-tip" id="bo-c-tip" hidden></div></div>
+            </div>
+            <div class="bo-card">
+              <div class="bo-bar"><h3 class="bo-h3">Critics&#39; score and return by budget, five-year groups</h3>
+                <div class="bo-seg sm" role="group" aria-label="Quality measure">
+                  <button type="button" data-qm="rt" aria-pressed="true">Critics' score</button>
+                  <button type="button" data-qm="roi" aria-pressed="false">Gross ÷ budget</button>
+                </div>
+              </div>
+              <div class="bo-stage"><svg id="bo-q-svg" viewBox="0 0 560 320" role="img" aria-label="Line chart comparing films budgeted at $100 million or more with cheaper films, in five-year groups."></svg><div class="bo-tip" id="bo-q-tip" hidden></div></div>
+              <p class="bo-key"><span><i class="k-big"></i>$100M+ budget</span><span><i class="k-small"></i>Under $100M</span><span class="bo-muted" id="bo-q-note"></span></p>
+              <p class="bo-hint">Groups end in your last year. Most reviews of older films were written years after release.</p>
+            </div>
+          </div>
+          <div class="bo-card">
+            <div class="bo-bar"><h3 class="bo-h3">Budget vs gross by genre, three-year window ending <b id="bo-b-yr">2025</b></h3></div>
+            <div class="bo-stage"><svg id="bo-b-svg" viewBox="0 0 900 420" role="img" aria-label="Bubble chart: each genre's median budget against median worldwide gross, sized by number of films, animated through the years."></svg><div class="bo-tip" id="bo-b-tip" hidden></div></div>
+            <div class="bo-player" data-player="cost">
+              <button type="button" class="bo-play" aria-label="Play">▶</button>
+              <input type="range" class="bo-scrub" aria-label="Year" step="1">
+              <output class="bo-yl"></output>
+              <label class="bo-spd"><span class="visually-hidden">Speed</span><select aria-label="Playback speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label>
+            </div>
+            <p class="bo-hint">Bubble size is the number of films. Above the 1× line, a genre's typical film grossed more worldwide than it cost to make (before marketing and the theaters' cut).</p>
+          </div>
+        </div>
+        <noscript><p class="bo-hint">These charts need JavaScript. The numbers in "What stands out" below are computed from the same data.</p></noscript>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="bo-ins">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><p class="eyebrow">From the data</p><h2 class="h-section" id="bo-ins">More money, fewer <span class="serif">kinds</span> of movies.</h2></div>
+        <p>My takeaway: we pay far more for a narrower slate of movies that earn less per dollar. Every number here is calculated from the films on this page, in {{bo_base}} dollars. Nothing is estimated.</p>
+      </div>
+      <div class="bo-ins">
+        <article class="reveal"><span class="mono">01</span><h3>Costs are way up</h3><p>After inflation, the median budget went from <strong>{{bo_i3}}</strong> (1991–1995) to <strong>{{bo_i3b}}</strong> (2021–2025), up {{bo_i3p}}. Films costing $100M or more went from <strong>{{bo_i3s}}</strong> of the list to <strong>{{bo_i3sb}}</strong>.</p></article>
+        <article class="reveal" style="--d:.04s"><span class="mono">02</span><h3>Less back per dollar</h3><p>The typical film grossed <strong>{{bo_i4r}}</strong> its budget worldwide in 1991–1995 and <strong>{{bo_i4rb}}</strong> in 2021–2025. That's before marketing and the theaters' cut.</p></article>
+        <article class="reveal" style="--d:.08s"><span class="mono">03</span><h3>A narrower slate</h3><p>Superhero and animated films went from <strong>{{bo_i1}}</strong> of these films' worldwide gross in the 1980s to <strong>{{bo_i1b}}</strong> in 2021–2025. Comedy fell from <strong>{{bo_i2}}</strong> to <strong>{{bo_i2b}}</strong>.</p></article>
+        <article class="reveal" style="--d:.12s"><span class="mono">04</span><h3>Sequels own the top 10</h3><p>Sequels and follow-ups made up <strong>{{bo_i5}}</strong> of each year's 10 biggest films in 1991–1995 and <strong>{{bo_i5b}}</strong> in 2021–2025.</p></article>
+      </div>
+      <p class="bo-hint reveal" style="margin-top:18px">Critics' scores are in the cost view for reference. Most reviews of 1980s and early-1990s films were written years later, so I don't compare eras on them.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="bo-org">
+    <div class="wrap split">
+      <div class="label reveal"><p class="eyebrow">Beyond the movies</p><h2 class="h-section" id="bo-org">Why this matters for <span class="serif">organizations</span>.</h2></div>
+      <div class="prose reveal">
+        <p class="big">A studio slate is a portfolio, and these charts are portfolio questions.</p>
+        <p><strong>Mix and concentration.</strong> When two genres carry over 40% of revenue, a slow year for either one shows up on the bottom line. Product lines, customer segments, and regions work the same way: check what share of the total a few names carry before something changes.</p>
+        <p><strong>Cost creep against return.</strong> Budgets went up and the gross-to-budget multiple came down. Track unit cost next to the return it earns, not on its own.</p>
+        <p><strong>Key-person dependence.</strong> The lead-actor view is a concentration chart too, the same check you'd run on a top account manager, supplier, or customer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="bo-src">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><p class="eyebrow">Data and method</p><h2 class="h-section" id="bo-src">Where the numbers <span class="serif">come from</span>.</h2></div>
+      </div>
+      <div class="bo-method reveal">
+        <dl>
+          <div><dt>Which films</dt><dd>Every film on Wikipedia's "List of <i>year</i> box office number-one films in the United States" pages, {{bo_y0}}–{{bo_y1}}: weekend #1 films plus each page's top-grossing table (sourced to Box Office Mojo). That's {{bo_n}} films, {{bo_per_min}}–{{bo_per_max}} a year. Re-releases of older films are dropped.</dd></div>
+          <div><dt>Box office</dt><dd>Lifetime <strong>worldwide</strong> gross from each film's Wikipedia infobox ({{bo_n_ww}} films), including re-releases, as of {{bo_gen}}. Films still in theaters can rise.</dd></div>
+          <div><dt>Budget</dt><dd>Production budget from the infobox, in U.S. dollars only ({{bo_n_bud}} films). Ranges like "$150–200 million" use the midpoint ({{bo_n_rng}} films have a range for budget or gross). When an infobox lists both gross and net (after-incentive) budgets, I use net. Marketing isn't included.</dd></div>
+          <div><dt>Genre</dt><dd>One primary genre per film, taken from Wikipedia's first-sentence description (for example, "a 1990 American Christmas comedy film"). Animated and superhero films get those genres first. Otherwise the first match wins, in this order: sci-fi &amp; fantasy, horror, action &amp; adventure, thriller &amp; crime, comedy, drama. {{bo_n_gs}} films are classified that way. The other {{bo_n_gf}} fall back to Wikidata genre tags. Real films blend genres, so treat the lines between genres as soft.</dd></div>
+          <div><dt>Sequels</dt><dd>A film counts as a sequel or follow-up if Wikidata says it "follows" an earlier film, or its Wikipedia intro calls it a sequel, prequel, spin-off, or numbered installment ({{bo_n_sq}} films). Both sources miss some, and remakes and reboots aren't counted, so treat the share as a floor.</dd></div>
+          <div><dt>Lead actor</dt><dd>The first person in the infobox "Starring" list (top-billed). For animated films, that's the first voice credit.</dd></div>
+          <div><dt>Critics</dt><dd>Rotten Tomatoes score from Wikidata ({{bo_n_rt}} films).</dd></div>
+          <div><dt>Inflation</dt><dd>BLS CPI-U, U.S. city average, all items (CUUR0000SA0), annual averages, rebased to {{bo_base}}. The 2025 average uses 11 months because October 2025 wasn't collected. Adjusting worldwide grosses by U.S. inflation is an approximation.</dd></div>
+          <div><dt>Limitations</dt><dd>These are the hits, not every release. Films that never reached #1 or the top 10 aren't here, so this says nothing about the average movie. It's also survivorship-biased toward successes, which flatters the return numbers. Ratings for 1980s and early-1990s films are mostly retrospective reviews counted years later. 2020 is a pandemic year.</dd></div>
+        </dl>
+        <p class="bo-credit">Data: <a class="text-link" href="https://en.wikipedia.org/wiki/Lists_of_box_office_number-one_films" target="_blank" rel="noopener">Wikipedia</a> (CC BY-SA), <a class="text-link" href="https://www.wikidata.org/" target="_blank" rel="noopener">Wikidata</a> (CC0), <a class="text-link" href="https://www.bls.gov/cpi/" target="_blank" rel="noopener">BLS CPI</a>. Built by me with AI, with a reproducible Python build script. Charts are vanilla JS and SVG, with no chart library.</p>
+        <div class="tags"><span class="tag">Bar chart race</span><span class="tag">Stacked area</span><span class="tag">Vanilla JS + SVG</span><span class="tag">Python</span><span class="tag">Wikidata</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div class="bars" aria-hidden="true"><i style="height:40px"></i><i style="height:64px"></i><i style="height:52px"></i><i style="height:88px"></i><i style="height:76px"></i><i class="a" style="height:120px"></i><i style="height:104px"></i><i class="a" style="height:150px"></i></div>
+        <div><p class="eyebrow">Talk shop</p><h2>Have data that needs <span class="serif accent">exploring</span>?</h2></div>
+        <div class="btn-row" style="margin-top:0"><a class="btn btn-primary" href="/contact/">Get in touch {{icon:arrow}}</a></div>
+      </div>
+      <p style="margin:32px 0 0"><a class="text-link" href="/work/visuals/">← All interactive visuals</a></p>
+    </div>
+  </section>
+</main>

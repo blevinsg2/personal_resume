@@ -1,0 +1,159 @@
+<main id="main" class="ct at">
+  <section class="page-head" style="padding-bottom:clamp(28px,4vw,40px)">
+    <div class="wrap">
+      <div class="crumbs reveal"><a href="/">Home</a><span class="s">/</span><span>Work</span><span class="s">/</span><a href="/work/ai-projects/">AI Projects</a><span class="s">/</span><span>Wolf of Wall Bot</span></div>
+      <p class="eyebrow reveal" style="--d:.03s"><span class="dot" aria-hidden="true"></span>AI Project · Just for fun · Oct 2026</p>
+      <h1 class="h-page reveal" style="--d:.06s">The Wolf of <span class="serif accent">Wall Bot</span>.</h1>
+      <p class="lede reveal" style="--d:.1s">I put a small amount of real money in a brokerage account, handed the keys to an AI bot, and gave it two personalities: one channels Jordan Belfort, the other channels Warren Buffett. Then I took my hands off the wheel. No grand strategy, no work angle. This one is purely for fun, all in the name of seeing what an agentic AI actually does when it's allowed to act on its own.</p>
+      <div class="at-nfa reveal" style="--d:.14s" role="note">
+        <b>Not financial advice. Just an experiment.</b>
+        <span>Nothing here is a recommendation to buy, sell, or do anything at all. If you find yourself copying a bot whose job description is "be Jordan Belfort," please close this tab and go for a walk.</span>
+      </div>
+      <dl class="ct-facts reveal" style="--d:.18s">
+        <div><dt>Bots in charge</dt><dd>1 <span>bot, 2 moods</span></dd></div>
+        <div><dt>Started</dt><dd>Oct <span>2026</span></dd></div>
+        <div><dt>Updates</dt><dd>Weekly <span>Fridays</span></dd></div>
+        <div><dt>Human trades</dt><dd>0 <span>by design</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0" aria-labelledby="at-meet">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Meet the two bots</p>
+          <h2 class="h-section" id="at-meet">Same bot, two very different <span class="serif">mentors</span>.</h2>
+        </div>
+        <p>Both modes run on their own and make their own calls. The only thing I picked was the personality, which, in hindsight, was the most important decision and the one I made the least seriously.</p>
+      </div>
+      <div class="at-bots">
+        <article class="at-bot at-wolf reveal">
+          <div class="at-bot-h"><span class="at-av" aria-hidden="true">JB</span><div><p class="at-mode">Mode 1 · Aggressive</p><h3>Jordan Belfort mode</h3></div></div>
+          <p class="at-quote">Wolf of Wall Street energy, minus the yacht, the fraud, and the federal prison.</p>
+          <dl class="at-spec">
+            <div><dt>Plays</dt><dd>Stocks, plus buy-only calls and puts</dd></div>
+            <div><dt>Goal</dt><dd>+10% by the last trading day of October 2026</dd></div>
+            <div><dt>Personality</dt><dd>Loud, caffeinated, allergic to the word "diversify"</dd></div>
+            <div><dt>Safety rail</dt><dd>Options are buy-only, so the worst case is losing what it bets, not owing anyone a boat</dd></div>
+          </dl>
+          <p class="at-why"><b>Why this is a terrible idea:</b> I took the most famous cautionary tale in finance and turned it into a job description, then gave it a login. Ten percent in under two weeks is the kind of goal that sounds great right up until you say it out loud.</p>
+        </article>
+        <article class="at-bot at-sage reveal" style="--d:.06s">
+          <div class="at-bot-h"><span class="at-av" aria-hidden="true">WB</span><div><p class="at-mode">Mode 2 · Sensible</p><h3>Warren Buffett mode</h3></div></div>
+          <p class="at-quote">Patient, boring, and almost certainly drinking a Cherry Coke.</p>
+          <dl class="at-spec">
+            <div><dt>Plays</dt><dd>About 60% in a Treasury bill ETF, 40% in a broad index ETF</dd></div>
+            <div><dt>Goal</dt><dd>Beat a high-yield savings account</dd></div>
+            <div><dt>Personality</dt><dd>Calm, unbothered, checks the news once a week, maybe</dd></div>
+            <div><dt>Safety rail</dt><dd>The whole strategy fits on an index card, which is sort of the point</dd></div>
+          </dl>
+          <p class="at-why"><b>Why it's here:</b> every experiment needs a control group. This is the bot that makes the other one look reckless, mostly by doing nothing and being fine with it.</p>
+        </article>
+      </div>
+      <p class="at-predict reveal">My prediction: Buffett mode wins on sleep, Belfort mode wins on stories. Results below, whatever they turn out to be.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="at-prog" id="progress">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Week by week</p>
+          <h2 class="h-section" id="at-prog">How it's <span class="serif">going</span>.</h2>
+        </div>
+        <p>Every Friday after the close the bot writes a short summary, and this page picks it up. Everything starts at an index of 100, so you can compare the two modes with the S&amp;P 500 (SPY) and a savings rate without seeing a single dollar.</p>
+      </div>
+      <div class="at-panel reveal" id="at" data-status="{{at_status}}" data-first="{{at_first}}">
+        <div class="at-chart-head">
+          <div class="at-legend" aria-hidden="true">
+            <span class="k-belfort"><i></i>Belfort mode</span><span class="k-buffett"><i></i>Buffett mode</span><span class="k-spy"><i></i>SPY</span><span class="k-savings"><i></i>Savings rate</span>
+          </div>
+          <p class="at-asof" id="at-asof">{{at_asof}}</p>
+        </div>
+        <div class="at-chart" id="at-chart">
+          <svg id="at-svg" role="img" aria-label="Index chart of both bot modes, SPY, and a savings rate, all starting at 100"></svg>
+          <div class="at-empty" id="at-empty"{{at_empty_hidden}}>
+            <p class="at-empty-k">Index · start = 100</p>
+            <p class="at-empty-h">First results land Friday,&nbsp;Oct&nbsp;23.</p>
+            <p class="at-empty-p">The bot makes its first trades on Wednesday, Oct 21. Check back after Friday's close for week one. Until then, there's nothing to chart, and I'm not going to make anything up.</p>
+          </div>
+        </div>
+        <div class="at-play" id="at-play" hidden>
+          <button type="button" class="bo-play" id="at-pp" aria-label="Play week by week">▶</button>
+          <div class="at-wk">
+            <div class="at-wk-top"><label for="at-wk" id="at-wk-lbl">Week 1</label><span id="at-wk-sub"></span></div>
+            <input type="range" id="at-wk" min="1" max="1" step="1" value="1">
+          </div>
+        </div>
+      </div>
+
+      <div class="at-two">
+        <div class="at-card reveal">
+          <div class="at-card-h"><h3>Scorecard</h3><span id="at-sc-lbl">{{at_sc_lbl}}</span></div>
+          <div class="at-tablewrap">
+            <table class="at-table" id="at-score">
+              <caption class="visually-hidden">Weekly and cumulative returns by mode, with SPY and a savings rate for comparison</caption>
+              <thead><tr><th scope="col">Series</th><th scope="col" class="n">Index</th><th scope="col" class="n">This week</th><th scope="col" class="n">Since start</th></tr></thead>
+              <tbody>{{at_score_rows}}</tbody>
+            </table>
+          </div>
+          <p class="at-small" id="at-verdict">{{at_verdict}}</p>
+        </div>
+        <div class="at-card reveal" style="--d:.06s">
+          <div class="at-card-h"><h3>Lessons</h3><span id="at-ls-lbl">{{at_sc_lbl}}</span></div>
+          <ul class="at-lessons" id="at-lessons">{{at_lessons}}</ul>
+        </div>
+      </div>
+
+      <div class="at-card at-log reveal">
+        <div class="at-card-h"><h3>Trade log</h3><span id="at-log-n">{{at_log_n}}</span></div>
+        <div class="at-filters">
+          <div class="bo-seg sm" role="group" aria-label="Filter trades by mode">
+            <button type="button" data-at-mode="all" aria-pressed="true">Both</button>
+            <button type="button" data-at-mode="belfort" aria-pressed="false">Belfort</button>
+            <button type="button" data-at-mode="buffett" aria-pressed="false">Buffett</button>
+          </div>
+          <div class="bo-seg sm" role="group" aria-label="Filter trades by type">
+            <button type="button" data-at-type="all" aria-pressed="true">All</button>
+            <button type="button" data-at-type="stock" aria-pressed="false">Stocks</button>
+            <button type="button" data-at-type="etf" aria-pressed="false">ETFs</button>
+            <button type="button" data-at-type="call" aria-pressed="false">Calls</button>
+            <button type="button" data-at-type="put" aria-pressed="false">Puts</button>
+          </div>
+          <label class="at-chk"><input type="checkbox" id="at-allwk" checked> All weeks</label>
+        </div>
+        <div class="at-tablewrap">
+          <table class="at-table at-trades" id="at-trades">
+            <caption class="visually-hidden">Trades made by the bot: date, mode, ticker, side, type, result, and its one-line reasoning</caption>
+            <thead><tr><th scope="col">Date</th><th scope="col">Mode</th><th scope="col">Ticker</th><th scope="col">Side</th><th scope="col">Type</th><th scope="col" class="n">Result</th><th scope="col">Why the bot did it</th></tr></thead>
+            <tbody>{{at_trade_rows}}</tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="at-how">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">How it works</p>
+        <h2 class="h-section" id="at-how">The bot drives. I <span class="serif">watch</span>.</h2>
+      </div>
+      <div class="prose reveal">
+        <p class="big">The bot picks the trades, places them, and writes down why. My job is to not touch anything, which is harder than it sounds.</p>
+        <p>Each Friday after the market closes, it writes a weekly summary: each mode as an index that started at 100, the week's and the running percent return, the same for SPY and a savings rate, every trade with a one-line reason, and a few lessons it took from the week.</p>
+        <p>This page only ever shows those normalized numbers. No dollar amounts, no balances, no account details, ever. Partly for privacy, and partly for my dignity.</p>
+        <p>What I'm actually curious about: does an agent stick to the personality it's given, does it explain itself well, and does "aggressive" mean clever or just loud? Whatever happens, I'll report it straight, including the weeks where the wolf gets eaten.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="at-nfa at-nfa-foot reveal" role="note"><b>One more time: not financial advice.</b> <span>This is a for-fun experiment with an AI bot and a small, deliberately boring amount of money. Past results, especially a bot's, say nothing about future results. Talk to a licensed professional before doing anything with your own money.</span></p>
+      <div class="tags reveal"><span class="tag">AI agents</span><span class="tag">Just for fun</span><span class="tag">Vanilla JS + SVG</span><span class="tag">Python</span></div>
+      <p style="margin:32px 0 0"><a class="text-link" href="/work/ai-projects/">← All AI projects</a></p>
+    </div>
+  </section>
+</main>

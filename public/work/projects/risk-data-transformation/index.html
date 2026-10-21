@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>From manual pulls to one risk story: ERM data at a national auto insurer · Gary Blevins</title>
+<meta name="description" content="How Gary Blevins took Enterprise Risk Management reporting at a national auto insurer from a two-day weekly manual process to automated hourly refreshes, then built data quality dashboards, a semantic model with Copilot data agents, and the Risk &amp; Control Hub.">
+<meta name="author" content="Gary Lee Blevins Jr.">
+<link rel="canonical" href="https://garyleeblevinsjr.com/work/projects/risk-data-transformation/">
+<meta name="theme-color" content="#fafaf8">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Gary Blevins">
+<meta property="og:title" content="From manual pulls to one risk story: ERM data at a national auto insurer · Gary Blevins">
+<meta property="og:description" content="How Gary Blevins took Enterprise Risk Management reporting at a national auto insurer from a two-day weekly manual process to automated hourly refreshes, then built data quality dashboards, a semantic model with Copilot data agents, and the Risk &amp; Control Hub.">
+<meta property="og:url" content="https://garyleeblevinsjr.com/work/projects/risk-data-transformation/">
+<meta property="og:image" content="https://garyleeblevinsjr.com/assets/img/work/risk-data/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="From manual pulls to one risk story: ERM data at a national auto insurer · Gary Blevins">
+<meta name="twitter:description" content="How Gary Blevins took Enterprise Risk Management reporting at a national auto insurer from a two-day weekly manual process to automated hourly refreshes, then built data quality dashboards, a semantic model with Copilot data agents, and the Risk &amp; Control Hub.">
+<meta name="twitter:image" content="https://garyleeblevinsjr.com/assets/img/work/risk-data/og.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>(function(){try{var t=localStorage.getItem("theme");if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t);if(t==="dark"){document.querySelector('meta[name="theme-color"]').setAttribute("content","#0b0c0e")}}catch(e){}document.documentElement.classList.add("js")})();</script>
+<link rel="stylesheet" href="/assets/css/site.css?v=202610211512">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Gary Blevins, home">
+      <span class="brand-mark" aria-hidden="true"><span>GB</span></span>
+      <span>Gary Blevins <small>/ analytics</small></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="menu">
+        <li><a class="menu-link" href="/">Home</a></li>
+        <li class="has-dd"><button class="menu-trigger" type="button" aria-expanded="false" aria-haspopup="true">About <svg class="chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button><ul class="dropdown"><li><a href="/about/profile/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span><span class="dd-title">Profile</span><span class="dd-desc">Who I am and how I work</span></span><span></span></a></li><li><a href="/about/skills/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></span><span><span class="dd-title">Skills</span><span class="dd-desc">Tools, platforms and disciplines</span></span><span></span></a></li><li><a href="/about/education/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/></svg></span><span><span class="dd-title">Education &amp; Honors</span><span class="dd-desc">Winthrop University and awards</span></span><span></span></a></li></ul></li>
+        <li><a class="menu-link" href="/experience/">Experience</a></li>
+        <li class="has-dd"><button class="menu-trigger is-current" type="button" aria-expanded="false" aria-haspopup="true">Work <svg class="chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button><ul class="dropdown"><li><a href="/work/projects/" aria-current="page"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg></span><span><span class="dd-title">Projects</span><span class="dd-desc">Case studies with live demos</span></span><span class=badge>New</span></a></li><li><a href="/work/ai-projects/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/><path d="M10 10h4v4h-4z"/></svg></span><span><span class="dd-title">AI Projects</span><span class="dd-desc">Built with AI, end to end</span></span><span class=badge>New</span></a></li><li><a href="/work/dashboards/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><span><span class="dd-title">Dashboards</span><span class="dd-desc">BI builds and design notes</span></span><span class=badge>New</span></a></li><li><a href="/work/visuals/"><span class="dd-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17 9 11l4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span><span class="dd-title">Interactive Visuals</span><span class="dd-desc">A playground for fun data pieces</span></span><span class=badge>New</span></a></li></ul></li>
+        <li><a class="menu-link" href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="moon"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="icon-btn menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="bars-ic"><path d="M4 8h16M4 16h16"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="x"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobile-panel" id="mobile-menu">
+  <nav aria-label="Mobile">
+    <ul class="m-list">
+      <li><a class="m-link" href="/">Home</a></li>
+      <li><button class="m-trigger" type="button" aria-expanded="false" aria-controls="m-sub-1">About <svg class="chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button><div class="m-sub" id="m-sub-1"><div><a href="/about/profile/"><span class="t">Profile</span></a><a href="/about/skills/"><span class="t">Skills</span></a><a href="/about/education/"><span class="t">Education &amp; Honors</span></a></div></div></li>
+      <li><a class="m-link" href="/experience/">Experience</a></li>
+      <li><button class="m-trigger" type="button" aria-expanded="true" aria-controls="m-sub-3">Work <svg class="chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button><div class="m-sub" id="m-sub-3"><div><a href="/work/projects/" aria-current="page"><span class="t">Projects</span><span class=badge>New</span></a><a href="/work/ai-projects/"><span class="t">AI Projects</span><span class=badge>New</span></a><a href="/work/dashboards/"><span class="t">Dashboards</span><span class=badge>New</span></a><a href="/work/visuals/"><span class="t">Interactive Visuals</span><span class=badge>New</span></a></div></div></li>
+      <li><a class="m-link" href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="m-foot"><span>King George, VA</span><span class="mono">garyleeblevinsjr.com</span></div>
+</div>
+<main id="main" class="rd">
+  <section class="page-head" style="padding-bottom:clamp(28px,4vw,44px)">
+    <div class="wrap">
+      <div class="crumbs reveal"><a href="/">Home</a><span class="s">/</span><span>Work</span><span class="s">/</span><a href="/work/projects/">Projects</a><span class="s">/</span><span>Risk data transformation</span></div>
+      <p class="eyebrow reveal" style="--d:.03s"><span class="dot" aria-hidden="true"></span>Case study · Enterprise Risk Management at a national auto insurer · 2024 to present</p>
+      <h1 class="h-page reveal" style="--d:.06s">From manual pulls to one <span class="serif accent">risk story</span>.</h1>
+      <p class="lede reveal" style="--d:.1s">How I took risk and control reporting from weekly manual data pulls to automated hourly refreshes, then used the time that freed up to build data quality checks, a shared semantic model, Copilot data agents, and now the Risk &amp; Control Hub. Each stage made the next one possible.</p>
+      <p class="rd-role reveal" style="--d:.12s">Principal Finance Data Analyst, Enterprise Risk Management · National auto insurer</p>
+      <dl class="ct-facts reveal" style="--d:.14s">
+        <div><dt>Issue Management reporting</dt><dd>2 days <span>to hourly</span></dd></div>
+        <div><dt>Refresh cadence</dt><dd>Weekly <span>to hourly</span></dd></div>
+        <div><dt>Power BI dashboards</dt><dd>35+ <span>centralized</span></dd></div>
+        <div><dt>Programs supported</dt><dd>4 <span>programs</span></dd></div>
+      </dl>
+      <p class="rd-note reveal">Programs: Internal Controls, Risk, Remediation, and Policy Exceptions. The diagrams on this page are simplified illustrations, not screenshots, and contain no company data.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="rd-start">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">Where it started</p>
+        <h2 class="h-section" id="rd-start">A week of reporting, <span class="serif">by hand</span>.</h2>
+      </div>
+      <div class="prose reveal">
+        <p class="big">At the start, the reporting ran on a weekly cycle of manual work: pull the data, clean it up, and republish the dashboards, by hand, every week.</p>
+        <p>For Issue Management, that cycle took two days. By the time a report was published, the data was already getting older, and it kept aging until the next week's pull. Every hour spent pulling and republishing was an hour that couldn't go into improving the data or the questions we were asking of it.</p>
+        <p>So the first job was clear: take the people out of the copy-and-paste loop.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="rd-ba" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><p class="eyebrow">Before and after</p><h2 class="h-section" id="rd-ba">Weekly by hand, then <span class="serif">hourly</span> on its own.</h2></div>
+        <p>Issue Management reporting went from a two-day manual weekly process to a fully automated platform with hourly refreshes through API integrations.</p>
+      </div>
+      <div class="rd-ba">
+        <figure class="rd-card rd-before reveal" aria-labelledby="rd-ba-b">
+          <figcaption><span class="rd-tag">Before</span><b id="rd-ba-b">A weekly, manual cycle</b></figcaption>
+          <ol class="rd-cycle" aria-label="The manual weekly cycle">
+            <li><span class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg></span><b>Pull</b><small>Export the data by hand</small></li>
+            <li><span class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4Z"/><path d="m13.5 6.5 4 4"/></svg></span><b>Clean</b><small>Fix and reshape it</small></li>
+            <li><span class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><b>Republish</b><small>Refresh the dashboards by hand</small></li>
+          </ol>
+          <div class="rd-week" role="img" aria-label="One week: the first two days go to manual pulling, cleaning, and republishing; for the rest of the week the published data gets older.">
+            <span class="w on">Day 1</span><span class="w on">Day 2</span><span class="w">3</span><span class="w">4</span><span class="w">5</span><span class="w">6</span><span class="w">7</span>
+          </div>
+          <p class="rd-legend"><i class="k on"></i>Two days of manual work <i class="k"></i>Data ages until next week</p>
+        </figure>
+        <div class="rd-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <figure class="rd-card rd-after reveal" style="--d:.06s" aria-labelledby="rd-ba-a">
+          <figcaption><span class="rd-tag go">After</span><b id="rd-ba-a">An automated, hourly pipeline</b></figcaption>
+          <ol class="rd-cycle" aria-label="The automated pipeline">
+            <li><span class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></span><b>Automated pulls</b><small>Power Query, Reporting Services, APIs</small></li>
+            <li><span class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><b>Validated</b><small>Standard field checks</small></li>
+            <li><span class="rd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><b>Refreshed</b><small>Every hour, no one pressing publish</small></li>
+          </ol>
+          <div class="rd-hours" role="img" aria-label="One day, with an automated refresh every hour.">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p class="rd-legend"><i class="k go"></i>One day, refreshed every hour</p>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="rd-stages">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><p class="eyebrow">The stages</p><h2 class="h-section" id="rd-stages">Each step <span class="serif">unlocked</span> the next.</h2></div>
+        <p>None of this was planned as one big bang. Automation bought back time, and that time went into the next layer.</p>
+      </div>
+      <ol class="rd-stairs" aria-label="Five stages, from automation to the Risk &amp; Control Hub">
+        <li class="reveal"><span class="n">01</span><h3>Automate</h3><p>Weekly manual pulls became automated pulls through Power Query, Reporting Services, and APIs.</p><p class="un"><b>Unlocked</b>Hourly data, and hours back every week</p></li>
+        <li class="reveal" style="--d:.04s"><span class="n">02</span><h3>Hygiene</h3><p>Dashboards that watch the quality of data entered in the GRC platform and work tracker, with standard field validation.</p><p class="un"><b>Unlocked</b>Data the team can trust, fixed at the source</p></li>
+        <li class="reveal" style="--d:.08s"><span class="n">03</span><h3>Semantic model</h3><p>The automated data consolidated into a shared semantic model, next to a centralized portfolio of 35+ Power BI dashboards.</p><p class="un"><b>Unlocked</b>One consistent base to build on</p></li>
+        <li class="reveal" style="--d:.12s"><span class="n">04</span><h3>Copilot agents</h3><p>Data agents in Microsoft Copilot, layered on the model, so the team can ask questions in plain language.</p><p class="un"><b>Unlocked</b>Self-service exploration</p></li>
+        <li class="reveal wip" style="--d:.16s"><span class="n">05</span><span class="rd-badge">In progress</span><h3>Risk &amp; Control Hub</h3><p>Bringing it all together in Snowflake, with data standardized across platforms.</p><p class="un"><b>Unlocks</b>One holistic ERM story</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="rd-s1">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">Stage 01 · Automate</p>
+        <h2 class="h-section" id="rd-s1">Stop pulling, start <span class="serif">piping</span>.</h2>
+      </div>
+      <div class="prose reveal">
+        <p class="big">I replaced the weekly pulls with automated ones, built with Power Query, Reporting Services, and API integrations.</p>
+        <p>Issue Management reporting went from a two-day manual weekly process to a fully automated platform that refreshes every hour. Going from weekly to hourly was a huge win: the numbers now reflect the last hour, not last week.</p>
+        <p>I redesigned Remediation reporting the same way, with automation and analytics that give near real-time visibility into remediation work, so leadership can follow progress and spot emerging risks as they happen.</p>
+        <p>Just as important, the hours that used to go into pulling and republishing came back to the team. Everything after this stage was built with that time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="rd-s2">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">Stage 02 · Hygiene</p>
+        <h2 class="h-section" id="rd-s2">Fresh data is only useful if it's <span class="serif">right</span>.</h2>
+      </div>
+      <div class="prose reveal">
+        <p class="big">Once the data refreshed on its own, I could start watching its quality all the time, not just once a week.</p>
+        <p>So I built hygiene dashboards that monitor the quality of the data entered into the GRC (governance, risk, and compliance) platform and the work-tracking system. They flag missing and invalid fields, like a record without an owner or a date that doesn't make sense, so the team can find and fix the problem quickly, at the source.</p>
+        <p>Behind them are data governance and quality controls across Issue Management and Remediation, with standardized field validation and monitoring. The result is more accurate, more consistent, and more reliable reporting.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="rd-hy" style="padding-top:0">
+    <div class="wrap">
+      <figure class="rd-score reveal" aria-labelledby="rd-hy">
+        <div class="rd-score-head">
+          <div><p class="eyebrow">Hygiene scorecard</p><h3 id="rd-hy">What a hygiene check looks like</h3></div>
+          <span class="rd-ex">Example data</span>
+        </div>
+        <div class="rd-tablewrap">
+          <table class="rd-table">
+            <caption class="visually-hidden">Example hygiene scorecard with made-up numbers: field checks, records flagged, and records fixed</caption>
+            <thead><tr><th scope="col">Check</th><th scope="col">Source</th><th scope="col" class="n">Flagged</th><th scope="col" class="n">Fixed</th><th scope="col">Progress</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Owner is missing<span class="rd-src"> · GRC platform</span></th><td>GRC platform</td><td class="n">12</td><td class="n">12</td><td><span class="rd-bar"><i style="width:100%"></i></span><span class="rd-st ok">Clear</span></td></tr>
+              <tr><th scope="row">Due date is missing<span class="rd-src"> · GRC platform</span></th><td>GRC platform</td><td class="n">9</td><td class="n">7</td><td><span class="rd-bar"><i style="width:78%"></i></span><span class="rd-st">2 open</span></td></tr>
+              <tr><th scope="row">Status isn't an allowed value<span class="rd-src"> · GRC platform</span></th><td>GRC platform</td><td class="n">5</td><td class="n">5</td><td><span class="rd-bar"><i style="width:100%"></i></span><span class="rd-st ok">Clear</span></td></tr>
+              <tr><th scope="row">Target date is before the open date<span class="rd-src"> · GRC platform</span></th><td>GRC platform</td><td class="n">4</td><td class="n">3</td><td><span class="rd-bar"><i style="width:75%"></i></span><span class="rd-st">1 open</span></td></tr>
+              <tr><th scope="row">Work item has no linked record<span class="rd-src"> · Work tracker</span></th><td>Work tracker</td><td class="n">7</td><td class="n">6</td><td><span class="rd-bar"><i style="width:86%"></i></span><span class="rd-st">1 open</span></td></tr>
+              <tr><th scope="row">Required field left blank<span class="rd-src"> · Work tracker</span></th><td>Work tracker</td><td class="n">6</td><td class="n">6</td><td><span class="rd-bar"><i style="width:100%"></i></span><span class="rd-st ok">Clear</span></td></tr>
+            </tbody>
+            <tfoot><tr><th scope="row">This example week</th><td></td><td class="n">43</td><td class="n">39</td><td><span class="rd-bar"><i style="width:91%"></i></span><span class="rd-st">4 open</span></td></tr></tfoot>
+          </table>
+        </div>
+        <figcaption>Example data: the checks and numbers are made up to show the idea. Each check is a validation rule; the dashboard lists the records that fail it, so whoever owns the record can fix it.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="rd-s3">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">Stages 03 and 04 · Model and agents</p>
+        <h2 class="h-section" id="rd-s3">One model, then <span class="serif">questions</span>.</h2>
+      </div>
+      <div class="prose reveal">
+        <p class="big">With the data automated and checked, I consolidated it into a shared semantic model.</p>
+        <p>Alongside it, I built and centralized a portfolio of 35+ Power BI dashboards across Internal Controls, Risk, Remediation, and Policy Exceptions. Having the data and the dashboards in one place means people start from the same numbers instead of their own copies.</p>
+        <p>The model also made the next step possible: AI-enabled data agents in Microsoft Copilot, layered on top. Instead of waiting for a new report, people can ask a question in plain language and explore the risk and control data themselves.</p>
+        <p>I'll be honest: Copilot isn't perfect. It can misread a question, and it's not a replacement for a well-built dashboard. But as an exploration tool it's great. It gets people to a first answer fast, gives stakeholders self-service access to risk and control insights, and reduces reliance on manual reporting and analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="rd-arch">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><p class="eyebrow">How it fits together</p><h2 class="h-section" id="rd-arch">The <span class="serif">architecture</span>.</h2></div>
+        <p>A simplified view of the flow, from the platforms where risk work is recorded to the dashboards, checks, and agents people use.</p>
+      </div>
+      <div class="rd-flow reveal" role="group" aria-label="Architecture: sources flow through automated pulls into a semantic model, which feeds dashboards, hygiene checks, and Copilot data agents, and next the Risk &amp; Control Hub in Snowflake.">
+        <div class="rd-col"><p class="rd-h"><span>1</span>Sources</p><ul><li>GRC platform</li><li>Work-tracking system</li><li class="soft">Other risk and control platforms</li></ul></div>
+        <div class="rd-link" aria-hidden="true"></div>
+        <div class="rd-col"><p class="rd-h"><span>2</span>Automated pulls</p><ul><li>Power Query</li><li>Reporting Services</li><li>APIs</li></ul><p class="rd-sub">Scheduled refreshes, hourly for Issue Management</p></div>
+        <div class="rd-link" aria-hidden="true"></div>
+        <div class="rd-col rd-core"><p class="rd-h"><span>3</span>Semantic model</p><ul><li>Consolidated, automated data</li></ul></div>
+        <div class="rd-link" aria-hidden="true"></div>
+        <div class="rd-col"><p class="rd-h"><span>4</span>What people use</p><ul><li>Power BI dashboards <b>35+</b></li><li>Hygiene dashboards</li><li>Copilot data agents</li></ul></div>
+        <div class="rd-link" aria-hidden="true"></div>
+        <div class="rd-col rd-next"><p class="rd-h"><span>5</span>Risk &amp; Control Hub</p><ul><li>Snowflake</li><li>Standardized across platforms</li></ul><p class="rd-badge">In progress</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="rd-s5">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">Stage 05 · Where it's heading</p>
+        <h2 class="h-section" id="rd-s5">One place, one <span class="serif">story</span>.</h2>
+      </div>
+      <div class="prose reveal">
+        <p class="big">The time we no longer spend pulling and republishing now goes into the biggest step yet: bringing everything together in the Risk &amp; Control Hub, built on Snowflake.</p>
+        <p>The work is standardizing data across platforms, so issues, remediation, controls, and policy exceptions line up and can be read side by side instead of in separate silos.</p>
+        <p>The 35+ dashboards and the governance behind them are the foundation for the move to the Enterprise Risk Management and Risk &amp; Control Hub operating model. Soon that foundation will let us tell a holistic ERM story, one view of risk across the enterprise, instead of a handful of separate ones.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="rd-conv" style="padding-top:0">
+    <div class="wrap">
+      <figure class="rd-conv reveal" aria-labelledby="rd-conv">
+        <div class="rd-silos" aria-label="Today: separate programs and platforms">
+          <span>Internal Controls</span><span>Risk</span><span>Remediation</span><span>Policy Exceptions</span>
+        </div>
+        <svg class="rd-funnel" viewBox="0 0 400 90" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <path d="M50 0 C 50 50, 200 40, 200 90" /><path d="M150 0 C 150 45, 200 45, 200 90" /><path d="M250 0 C 250 45, 200 45, 200 90" /><path d="M350 0 C 350 50, 200 40, 200 90" />
+        </svg>
+        <div class="rd-one"><b id="rd-conv">One standardized ERM view</b><small>Risk &amp; Control Hub · Snowflake · In progress</small></div>
+        <figcaption>Where it's heading: separate programs and platforms, standardized and read together as one view of enterprise risk.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="rd-why">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">Why it matters</p>
+        <h2 class="h-section" id="rd-why">The big <span class="serif">picture</span>.</h2>
+      </div>
+      <div class="prose reveal">
+        <ul class="bullets">
+          <li><b>Timeliness:</b> Issue Management reporting that refreshes every hour instead of once a week, and near real-time visibility into remediation.</li>
+          <li><b>Trust:</b> standardized validation and hygiene dashboards that catch bad or missing data where it's entered.</li>
+          <li><b>Consistency:</b> 35+ dashboards across four programs, centralized in one place.</li>
+          <li><b>Self-service:</b> Copilot data agents that let people explore the data without waiting on a manual report.</li>
+          <li><b>Foundation:</b> the data groundwork for the Enterprise Risk Management and Risk &amp; Control Hub operating model.</li>
+        </ul>
+        <div class="tags"><span class="tag">Power BI</span><span class="tag">Power Query</span><span class="tag">Reporting Services</span><span class="tag">APIs</span><span class="tag">Semantic model</span><span class="tag">Copilot data agents</span><span class="tag">Snowflake</span><span class="tag">Data governance</span></div>
+        <p style="margin:32px 0 0"><a class="text-link" href="/experience/">See my full experience</a> · <a class="text-link" href="/work/projects/">← All projects</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div>© <span data-year>2026</span> Gary Lee Blevins Jr. <span class="mono">· King George, VA</span></div>
+    <nav aria-label="Footer">
+      <a href="/about/profile/">About</a>
+      <a href="/experience/">Experience</a>
+      <a href="/work/projects/">Work</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</footer>
+<button type="button" class="egg" aria-label="Launch a mini game" title="Launch a mini game" data-games="/assets/js/games.js?v=202610211512"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M12 2.5c3.2 2.3 4.8 5.6 4.6 9.8l2.4 2.9-.9 4.3-3.1-2.3H9l-3.1 2.3-.9-4.3 2.4-2.9C7.2 8.1 8.8 4.8 12 2.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="1.9" fill="currentColor"/><path class="egg-flame" d="M10.4 19.2 12 22l1.6-2.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<script src="/assets/js/site.js?v=202610211512" defer></script>
+
+</body>
+</html>

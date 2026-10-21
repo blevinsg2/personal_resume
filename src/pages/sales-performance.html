@@ -1,0 +1,109 @@
+<main id="main" class="ct sp">
+  <section class="page-head" style="padding-bottom:clamp(28px,4vw,40px)">
+    <div class="wrap">
+      <div class="crumbs reveal"><a href="/">Home</a><span class="s">/</span><span>Work</span><span class="s">/</span><a href="/work/projects/">Projects</a><span class="s">/</span><span>Sales performance</span></div>
+      {{series_top}}
+      <p class="eyebrow reveal" style="--d:.03s"><span class="dot" aria-hidden="true"></span>Case study · Part 2 · Sales performance</p>
+      <h1 class="h-page reveal" style="--d:.06s">Staffed right. Now, <span class="serif accent">sell right</span>.</h1>
+      <p class="lede reveal" style="--d:.1s">Part 2 of my home-improvement retail story. Once the right people were on the floor, the question became what they were selling, and how to give every specialist a fair goal and a clear history.</p>
+      <div class="btn-row reveal" style="--d:.14s">
+        <a class="btn btn-primary" href="#sp-demo">Try the demo {{icon:arrow}}</a>
+        <a class="btn btn-ghost" href="/work/projects/staffing-to-demand/">Part 1: Staffing to demand</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:clamp(24px,4vw,48px)" aria-labelledby="sp-story">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">The story · Home-improvement retail</p>
+        <h2 class="h-section" id="sp-story">From hours to <span class="serif">what sells</span>.</h2>
+      </div>
+      <div class="prose reveal">
+        <p class="big">This came after the <a class="text-link" href="/work/projects/staffing-to-demand/">staffing work</a>. Once stores were staffed right, the next question was what was being sold, and by whom. I developed the Sales Performance tool, a proprietary application that monitored employee performance and set sales goals on its own.</p>
+        <p><strong>More than the top line.</strong> Margin, attachment rate, service attachment, credit attachment, lead generation, and basket mix all mattered, not just total sales.</p>
+        <p><strong>Sales through the specialists.</strong> Our specialists were the most trained people in the building, so we wanted the bulk of sales to route through them.</p>
+        <p><strong>Goals from the forecast.</strong> Every goal came from the store and departmental forecasts, so it reflected real opportunity.</p>
+        <p><strong>Twelve months of history.</strong> Employees and their managers could review performance together and talk about where to improve. Managers always had a list of who had the most room to grow. Not in a bad way, just a clear view of where the opportunity was.</p>
+        <p>The demo below is not that tool and uses no company data. It's one example store with fictional specialists, built to show how the pieces fit.</p>
+        <p>Later, this work expanded into employee bonuses. That's <a class="text-link" href="/work/projects/incentives/">Part 3: Incentives</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="sp-demo">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Interactive · Example data</p>
+          <h2 class="h-section" id="sp-demo">One example store, <span class="serif">end to end</span>.</h2>
+        </div>
+        <p>Three steps: forecast to goals, a specialist's scorecard, and the manager's opportunity list. Every number is an example you can change in the assumptions panel.</p>
+      </div>
+
+      <div class="tr-panel sp-panel reveal" id="sp-cascade">
+        <div class="sp-ph"><span class="sp-n">1</span><div><h3>Forecast to goal</h3><p>The store forecast splits by department, then into each specialist's monthly goal by hours worked.</p></div><span class="tr-badge">Example data</span></div>
+        <div class="sp-ctrls">
+          <label class="sp-range"><span>Store sales last year (monthly)</span><input type="range" id="sp-base" min="1000000" max="5000000" step="50000"><output id="sp-base-out"></output></label>
+          <label class="sp-range"><span>Growth vs last year</span><input type="range" id="sp-growth" min="-10" max="20" step="0.5"><output id="sp-growth-out"></output></label>
+          <div class="sp-total"><span>Store forecast this month</span><b id="sp-forecast"></b></div>
+        </div>
+        <div class="sp-depts" id="sp-depts" aria-live="polite"></div>
+      </div>
+
+      <div class="tr-panel sp-panel reveal" id="sp-score">
+        <div class="sp-ph"><span class="sp-n">2</span><div><h3>Specialist scorecard</h3><p>Twelve months against goal, the view a specialist and their manager review together. I looked at a full year because any one month can swing with the season; the pattern is what mattered, and what the incentives in <a class="text-link" href="/work/projects/incentives/">Part 3</a> were built to reward.</p></div><span class="tr-badge">Example data</span></div>
+        <div class="sp-people" id="sp-people" role="tablist" aria-label="Specialist"></div>
+        <div class="sp-cards" id="sp-cards" aria-live="polite"></div>
+      </div>
+
+      <div class="sp-one">
+        <div class="tr-panel sp-panel reveal" id="sp-opps">
+          <div class="sp-ph"><span class="sp-n">3</span><div><h3>Where the opportunity is</h3><p>The manager's list: biggest gap first, with a strength to start the conversation.</p></div></div>
+          <ol class="sp-opp" id="sp-opp"></ol>
+        </div>
+      </div>
+
+      <div class="tr-panel sp-panel sp-assume reveal">
+        <div class="sf-assume-h"><span class="tr-badge">Example assumptions</span><button type="button" class="text-link sf-reset" data-sp-reset>Reset</button></div>
+        <div class="sf-fields" id="sp-fields"></div>
+      </div>
+      <p class="tr-note reveal">How it works: department forecast = store forecast × department mix. Each specialist's goal = department forecast × the share of department sales we want through specialists, split by scheduled hours. The 12-month histories are generated from fictional profiles and a seasonal curve; they are not real people or real results. The opportunity list ranks each specialist's largest shortfall over the last three months.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="sp-org">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Beyond the store</p>
+          <h2 class="h-section" id="sp-org">Why this matters for <span class="serif">organizations</span>.</h2>
+        </div>
+        <p>Goals, history, and coaching that all come from the same forecast tell one consistent story to everyone on the floor.</p>
+      </div>
+      <div class="qn-uses tr-uses">
+        <article class="reveal"><span class="mono">01</span><h3>Quality of sales</h3><p>Margin, attachments, and basket mix show whether a sale helped the business, not just whether it happened.</p></article>
+        <article class="reveal" style="--d:.04s"><span class="mono">02</span><h3>Goals people trust</h3><p>When a goal traces back to the store and department forecast, it feels earned, not arbitrary.</p></article>
+        <article class="reveal" style="--d:.08s"><span class="mono">03</span><h3>Coaching, not blame</h3><p>An opportunity list starts the conversation with a strength and one focus area. It points managers where help pays off most.</p></article>
+        <article class="reveal"><span class="mono">04</span><h3>History makes it fair</h3><p>Twelve months of trend separates a slow month from a real pattern, for the employee and the manager.</p></article>
+        <article class="reveal" style="--d:.04s"><span class="mono">05</span><h3>Right work, right person</h3><p>Routing big-ticket sales through the most trained people puts expertise where it changes the outcome for the customer.</p></article>
+        <article class="reveal" style="--d:.08s"><span class="mono">06</span><h3>Beyond retail</h3><p>Sales teams, branches, contact centers: any team with a forecast can cascade goals, track quality, and coach to the gaps.</p></article>
+      </div>
+      <p class="qn-credit reveal">Example data only: the store, departments, specialists, histories, and all assumptions are fictional and editable. Built by me with AI. Updated Oct 2026.</p>
+      <div class="tags reveal"><span class="tag">Sales performance</span><span class="tag">Goal setting</span><span class="tag">Scorecards</span><span class="tag">Coaching</span><span class="tag">Vanilla JS</span></div>
+    </div>
+  </section>
+
+  {{series_bottom}}
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div class="bars" aria-hidden="true"><i style="height:40px"></i><i style="height:64px"></i><i style="height:52px"></i><i style="height:88px"></i><i style="height:76px"></i><i class="a" style="height:120px"></i><i style="height:104px"></i><i class="a" style="height:150px"></i></div>
+        <div><p class="eyebrow">Talk shop</p><h2>Goals, scorecards, or <span class="serif accent">coaching</span>?</h2></div>
+        <div class="btn-row" style="margin-top:0"><a class="btn btn-primary" href="/contact/">Get in touch {{icon:arrow}}</a></div>
+      </div>
+      <p style="margin:32px 0 0"><a class="text-link" href="/work/projects/">← All projects</a></p>
+    </div>
+  </section>
+</main>

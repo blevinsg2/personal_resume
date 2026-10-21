@@ -1,0 +1,7 @@
+/about        /about/profile/   301
+/about/       /about/profile/   301
+/work         /work/projects/   301
+/work/        /work/projects/   301
+/work/visuals/traffic-routing   /work/projects/routing/   301
+/work/visuals/traffic-routing/  /work/projects/routing/   301
+/work/visuals/traffic-routing/*  /work/projects/routing/   301

@@ -1,0 +1,110 @@
+<main id="main" class="ct tr ai">
+  <section class="page-head" style="padding-bottom:clamp(28px,4vw,40px)">
+    <div class="wrap">
+      <div class="crumbs reveal"><a href="/">Home</a><span class="s">/</span><span>Work</span><span class="s">/</span><a href="/work/dashboards/">Dashboards</a><span class="s">/</span><span>AIPD</span></div>
+      <p class="eyebrow reveal" style="--d:.03s"><span class="dot" aria-hidden="true"></span>Dashboard · Sales &amp; marketing</p>
+      <h1 class="h-page reveal" style="--d:.06s">Who to call <span class="serif accent">next</span>.</h1>
+      <p class="lede reveal" style="--d:.1s">A rebuild of the AIPD dashboard from my time at a facilities software company: customer data matched against a full market list and enriched with third-party data, so every account executive opens a view of their own territory with the next product to pitch and the next company to call. Every company, contact, and number here is fictional example data.</p>
+      <div class="btn-row reveal" style="--d:.14s">
+        <a class="btn btn-primary" href="#ai-dash">Open the dashboard {{icon:arrow}}</a>
+        <a class="btn btn-ghost" href="#ai-story">Read the story</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:clamp(24px,4vw,48px)" aria-labelledby="ai-story">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">The story · Facilities software</p>
+        <h2 class="h-section" id="ai-story">Finding the <span class="serif">whitespace</span>.</h2>
+      </div>
+      <div class="prose reveal">
+        <p class="big">At a facilities software company I managed the end-to-end development of the AIPD dashboard, a sales and marketing tool for finding new customers.</p>
+        <p><strong>Ours versus everyone.</strong> It compared our internal customer data in Salesforce with all of Dun &amp; Bradstreet's data. Anything in the market list that wasn't already a customer was an opportunity to reach a potential new one.</p>
+        <p><strong>Enough to make a recommendation.</strong> Adding third-party data like ZoomInfo gave us enough on each prospect to recommend which of our products was the ideal fit and who to contact, based on how those products had historically performed in that industry.</p>
+        <h3 class="ai-h3">How it was used</h3>
+        <p>Account executives were spread across the country, mostly in or near big cities. They'd open the dashboard to see their existing customers, upsell recommendations, and, most importantly, new companies and contacts to reach out to. The view was tailored to whoever logged in: a New York AE didn't see Los Angeles data.</p>
+        <ol class="ai-flow" aria-label="How the data came together">
+          <li><b>Salesforce</b><span>Our customers and what they own</span></li>
+          <li><b>Dun &amp; Bradstreet</b><span>Every company in the market, minus our customers</span></li>
+          <li><b>Third-party enrichment</b><span>Firmographics, signals, and contacts (e.g. ZoomInfo)</span></li>
+          <li><b>Fit score</b><span>Best product and who to call, per AE territory</span></li>
+        </ol>
+        <p>The dashboard below is not the original dashboard and uses no Salesforce, Dun &amp; Bradstreet, or ZoomInfo records. The AEs, companies, contacts, signals, and dollar values are invented. Product areas are generic categories, and pins sit near real metro-area towns for flavor only.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="ai-dash" style="padding-top:clamp(12px,2vw,24px)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Interactive · Example data</p>
+          <h2 class="h-section" id="ai-dash">One territory, <span class="serif">yours</span>.</h2>
+        </div>
+        <p>Switch who's signed in and the whole dashboard follows. Filter the prospects, then tap one to see why its product fits and who to contact.</p>
+      </div>
+
+      <div class="tr-panel ai-panel reveal" id="ai-board">
+        <div class="ai-signin">
+          <label class="ai-who"><span>Signed in as</span><select id="ai-ae" aria-label="Signed in as"></select></label>
+          <p class="ai-scope" id="ai-scope" aria-live="polite"></p>
+          <span class="tr-badge">Example data</span>
+        </div>
+        <div class="ai-filters">
+          <label class="ai-f"><span>Industry</span><select id="ai-ind"></select></label>
+          <label class="ai-f"><span>Employees</span><select id="ai-size"><option value="all">Any size</option><option value="s">Under 1,000</option><option value="m">1,000 to 5,000</option><option value="l">Over 5,000</option></select></label>
+          <label class="sp-range sp-mini ai-fit"><span>Minimum fit score</span><input type="range" id="ai-min" min="0" max="90" step="5" value="50"><output id="ai-min-out">50</output></label>
+        </div>
+        <div class="sf-kpis ai-kpis" id="ai-kpis" aria-live="polite"></div>
+        <div class="ai-body">
+          <div class="tr-map ai-map" id="ai-map" role="region" aria-label="Territory map of customers and prospects"></div>
+          <div class="ai-list">
+            <div class="tr-seg ai-tabs" role="tablist" aria-label="Dashboard view">
+              <button type="button" role="tab" aria-selected="false" data-tab="cust">Customers</button>
+              <button type="button" role="tab" aria-selected="false" data-tab="up">Upsell</button>
+              <button type="button" role="tab" aria-selected="true" data-tab="new">New prospects</button>
+            </div>
+            <div class="ai-items" id="ai-items" role="tabpanel"></div>
+          </div>
+          <div class="ai-detail" id="ai-detail" aria-live="polite"></div>
+        </div>
+        <noscript><p class="tr-noscript">The dashboard needs JavaScript.</p></noscript>
+      </div>
+      <p class="tr-note reveal">How the illustrative fit score works: for each product area, add an industry win-history score (0 to 35, example values), points for facilities (3 to 25) and employees (3 to 15), and 15 for each third-party signal that points to that product. The top score is the recommendation; it's capped at 100. Upsell uses the same score for products a customer doesn't own yet, plus 10 when the product pairs naturally with one they already have. Estimated pipeline adds each upsell's example value to each shown prospect's example value weighted by its fit score. Every company, contact, signal, and dollar figure is fictional.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="ai-org">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Beyond sales tools</p>
+          <h2 class="h-section" id="ai-org">Why this matters for <span class="serif">organizations</span>.</h2>
+        </div>
+        <p>Most companies already own the data to find their next customers. It's just split across systems that don't talk.</p>
+      </div>
+      <div class="qn-uses tr-uses">
+        <article class="reveal"><span class="mono">01</span><h3>Whitespace is a join</h3><p>Matching your CRM against a market list turns "who should we call?" into a query instead of a guess.</p></article>
+        <article class="reveal" style="--d:.04s"><span class="mono">02</span><h3>Recommend, don't just list</h3><p>A prospect list is a start. A recommended product and a named contact is something a seller can act on today.</p></article>
+        <article class="reveal" style="--d:.08s"><span class="mono">03</span><h3>Show the why</h3><p>A transparent score earns trust. Sellers use recommendations they can explain to a customer.</p></article>
+        <article class="reveal"><span class="mono">04</span><h3>Tailor the view</h3><p>Filtering to the signed-in seller keeps the dashboard focused and keeps territory data where it belongs.</p></article>
+        <article class="reveal" style="--d:.04s"><span class="mono">05</span><h3>Grow the base too</h3><p>Upsell recommendations put existing customers next to new prospects, so growth isn't only about new logos.</p></article>
+        <article class="reveal" style="--d:.08s"><span class="mono">06</span><h3>Data quality pays</h3><p>Enrichment only works when records match. Clean company and contact data is what makes the whole thing usable.</p></article>
+      </div>
+      <p class="qn-credit reveal">Example data only: the AEs, companies, contacts, signals, and values are fictional. No Salesforce, Dun &amp; Bradstreet, or ZoomInfo records are used. Map tiles © OpenStreetMap contributors. Built by me with AI. Updated Oct 2026.</p>
+      <div class="tags reveal"><span class="tag">Salesforce</span><span class="tag">Data enrichment</span><span class="tag">Lead scoring</span><span class="tag">Row-level security</span><span class="tag">Leaflet</span><span class="tag">Vanilla JS</span></div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div class="bars" aria-hidden="true"><i style="height:40px"></i><i style="height:64px"></i><i style="height:52px"></i><i style="height:88px"></i><i style="height:76px"></i><i class="a" style="height:120px"></i><i style="height:104px"></i><i class="a" style="height:150px"></i></div>
+        <div><p class="eyebrow">Talk shop</p><h2>Sales data that points to the <span class="serif accent">next call</span>?</h2></div>
+        <div class="btn-row" style="margin-top:0"><a class="btn btn-primary" href="/contact/">Get in touch {{icon:arrow}}</a></div>
+      </div>
+      <p style="margin:32px 0 0"><a class="text-link" href="/work/dashboards/">← All dashboards</a></p>
+    </div>
+  </section>
+</main>

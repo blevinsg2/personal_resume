@@ -1,0 +1,189 @@
+<main id="main" class="ct qn">
+  <section class="page-head" style="padding-bottom:clamp(28px,4vw,40px)">
+    <div class="wrap">
+      <div class="crumbs reveal"><a href="/">Home</a><span class="s">/</span><span>Work</span><span class="s">/</span><a href="/work/visuals/">Interactive Visuals</a><span class="s">/</span><span>QB Network</span></div>
+      <p class="eyebrow reveal" style="--d:.03s"><span class="dot" aria-hidden="true"></span>Interactive Visual · {{qn_season}} NFL season</p>
+      <h1 class="h-page reveal" style="--d:.06s">Who catches <span class="serif accent" data-qn-firstp>{{qn_firstp}}</span> passes?</h1>
+      <p class="lede reveal" style="--d:.1s">A force-directed network of every completed pass in the {{qn_season}} regular season. <strong data-qn-name>{{qn_name}}</strong> sits in the middle. Each line runs to a player he has completed a pass to, and each of those players links out to any <em>other</em> passer who has completed one to them too.</p>
+      <p class="qn-asof reveal" style="--d:.12s"><span class="qn-live" aria-hidden="true"></span><span data-qn-asof>Season to date, {{qn_through}}</span></p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0" aria-label="QB network graph">
+    <div class="wrap">
+      <div class="qn-panel reveal">
+        <div class="qn-toolbar">
+          <label class="qn-select"><span>Center QB</span>
+            <select id="qn-qb" aria-label="Choose the quarterback in the center"><option value="{{qn_default}}">{{qn_name}} · {{qn_team}}</option></select>
+          </label>
+          <div class="qn-legend" aria-hidden="true">
+            <span><i class="lg-center"></i>Center QB</span>
+            <span><i class="lg-rec"></i>Receiver</span>
+            <span><i class="lg-qb"></i>Other QB</span>
+            <span><i class="lg-np"></i>Non-QB passer</span>
+          </div>
+          <div class="qn-btns">
+            <button type="button" class="qn-btn" data-qn-zoom="1.25" aria-label="Zoom in">+</button>
+            <button type="button" class="qn-btn" data-qn-zoom="0.8" aria-label="Zoom out">&minus;</button>
+            <button type="button" class="qn-btn qn-reset" data-qn-reset>Reset</button>
+          </div>
+        </div>
+        <div class="qn-stage" id="qn-stage">
+          <svg id="qn-svg" role="img" aria-label="Network graph of {{qn_namep}} completions and the other passers who completed passes to the same receivers"></svg>
+          <div class="qn-tip" id="qn-tip" role="status" aria-live="polite" hidden></div>
+          <p class="qn-wnote" id="qn-wnote" hidden></p>
+          <p class="qn-hint">Drag a player · scroll or pinch to zoom · tap for details</p>
+          <noscript><p class="qn-noscript">This graph needs JavaScript. The table below has the same numbers.</p></noscript>
+        </div>
+        <div class="qn-play" id="qn-play" hidden>
+          <button type="button" class="bo-play" id="qn-pp" aria-label="Play the season week by week">▶</button>
+          <div class="qn-wk">
+            <div class="qn-wk-top"><label for="qn-wk" id="qn-wk-lbl">Through Week {{qn_week}}</label><span class="qn-wk-sub" id="qn-wk-sub" aria-hidden="true"></span></div>
+            <input type="range" id="qn-wk" min="1" max="{{qn_week}}" step="1" value="{{qn_week}}">
+            <div class="qn-ticks" id="qn-ticks" aria-hidden="true"></div>
+          </div>
+          <div class="bo-seg sm qn-mode" role="group" aria-label="Weeks to include">
+            <button type="button" data-qn-mode="cum" aria-pressed="true">Season to date</button>
+            <button type="button" data-qn-mode="one" aria-pressed="false">This week only</button>
+          </div>
+        </div>
+        <p class="qn-status visually-hidden" id="qn-status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="qn-facts-cap reveal" data-qn-cap>Season to date, {{qn_through}}</p>
+      <dl class="ct-facts reveal">
+        <div><dt>Receivers</dt><dd data-qn-stat="rec">{{qn_rec}}</dd></div>
+        <div><dt>Completions</dt><dd data-qn-stat="comp">{{qn_comp}}</dd></div>
+        <div><dt>Receiving yards</dt><dd data-qn-stat="yds">{{qn_yds}}</dd></div>
+        <div><dt>Other passers</dt><dd data-qn-stat="oth">{{qn_oth}}</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="qh-h">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Throw map</p>
+          <h2 class="h-section" id="qh-h">Where <span class="serif" data-qn-firstp>{{qn_firstp}}</span> passes go.</h2>
+        </div>
+        <p>Every targeted pass attempt by <span data-qn-name>{{qn_name}}</span> this season, by side of the field and how far past the line of scrimmage the ball traveled in the air. Completions, incompletions, and interceptions all count.</p>
+      </div>
+      <div class="qh reveal" id="qh">
+        <div class="qh-bar">
+          <div class="bo-seg sm qh-seg" role="group" aria-label="Color the map by">
+            <button type="button" data-qh-m="att" aria-pressed="true">Attempts</button>
+            <button type="button" data-qh-m="pct" aria-pressed="false">Comp %</button>
+            <button type="button" data-qh-m="ypa" aria-pressed="false">Yds/att</button>
+            <button type="button" data-qh-m="epa" aria-pressed="false">EPA/att</button>
+          </div>
+          <label class="qn-select qh-rsel"><span>Targets</span><select id="qh-rec" aria-label="Show throws to one receiver"><option value="">All receivers</option></select></label>
+        </div>
+        <div class="qh-grid">
+          <div class="qh-fieldwrap" id="qh-fieldwrap">
+            <svg id="qh-svg" viewBox="0 0 360 632" role="group" aria-label="Field map of {{qn_namep}} pass attempts by direction and air yards. Use the arrow keys to move between zones."></svg>
+            <div class="qn-tip qh-tip" id="qh-tip" hidden></div>
+          </div>
+          <div class="qh-side">
+            <p class="qh-status" id="qh-status" role="status" aria-live="polite"></p>
+            <dl class="qh-stats" id="qh-stats"></dl>
+            <div class="qh-legend" id="qh-legend" aria-hidden="true"></div>
+            <p class="qh-note">Pass location is charted in thirds (left, middle, right) by the NFL's play-by-play, so the map shows direction, not exact spots. Left and right are from the quarterback's view. Depth is air yards past the line of scrimmage. EPA is nflverse's expected points added.</p>
+            <p class="qh-note" id="qh-excl"></p>
+            <p class="qh-why"><b>Why it matters.</b> This is the view a defensive coordinator studies all week: where a quarterback likes to throw, by side and depth, shapes coverage calls and who lines up where. The business version is the same: find where the volume and the value actually land.</p>
+            <p class="qh-hint">Tap or click a receiver in the network above to map only his targets.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="qn-read">
+    <div class="wrap split">
+      <div class="label reveal">
+        <p class="eyebrow">How to read it</p>
+        <h2 class="h-section" id="qn-read">Size means <span class="serif">volume</span>.</h2>
+      </div>
+      <div class="prose reveal">
+        <p class="big">The bigger the circle and the thicker the line, the more completions run through that connection.</p>
+        <p>Receivers are sized by completions from the center QB. Lines from a receiver to another passer show how many times that passer completed one to the same player, whether it was a backup stepping in, a trick play, or a QB from a team the receiver played for earlier in the season.</p>
+        <p>The graph is live physics: grab any player and the rest of the network pulls along with it. Use the menu to put a different quarterback in the middle.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="qn-org">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Beyond football</p>
+          <h2 class="h-section" id="qn-org">Why this matters at <span class="serif">work</span>.</h2>
+        </div>
+        <p>No company cares who catches <span data-qn-firstp>{{qn_firstp}}</span> passes. Swap the labels, though, and the same picture answers real business questions.</p>
+      </div>
+      <div class="qn-map reveal">
+        <div><span class="qn-map-k"><i class="lg-center"></i>Center node</span><p>The focal entity: a person, product, vendor, account, or table.</p></div>
+        <div><span class="qn-map-k"><i class="qn-map-line"></i>Lines</span><p>Interactions, weighted by volume. Thicker means more.</p></div>
+        <div><span class="qn-map-k"><i class="lg-qb"></i>Second-degree links</span><p>Shared connections: who else touches the same things.</p></div>
+      </div>
+      <div class="qn-uses">
+        <article class="reveal"><span class="mono">01</span><h3>Collaboration networks</h3><p>Who works with whom. Surfaces hidden connectors, siloed teams, and key-person risk when one name sits in the middle of everything.</p></article>
+        <article class="reveal" style="--d:.04s"><span class="mono">02</span><h3>Customers and products</h3><p>A product in the center, its buyers around it, and the other products those buyers picked up. Cross-sell ideas fall out of the shared links.</p></article>
+        <article class="reveal" style="--d:.08s"><span class="mono">03</span><h3>Vendors and supply chain</h3><p>A supplier, the sites it serves, and the other suppliers serving those sites. Shows concentration risk, and whether a backup already exists.</p></article>
+        <article class="reveal"><span class="mono">04</span><h3>Data lineage</h3><p>A source table, every report and dashboard that reads from it, and what else those depend on. You see a change's full impact before it ships. In BI, this is the one I'd reach for first.</p></article>
+        <article class="reveal" style="--d:.04s"><span class="mono">05</span><h3>Fraud and risk</h3><p>An account or claim linked to the devices, phone numbers, or addresses it shares with others. Rings that look unrelated in a table show up as tight clusters.</p></article>
+        <article class="reveal" style="--d:.08s"><span class="mono">06</span><h3>Referrals and communication</h3><p>Who refers to whom, who messages whom, and where requests actually route compared with where the org chart says they should.</p></article>
+      </div>
+
+      <div class="qn-shape reveal">
+        <h3 class="qn-shape-h">What you learn from the <span class="serif accent">shape</span></h3>
+        <dl>
+          <div><dt>Hubs</dt><dd data-qn-shape="hubs">{{qn_hubs}}</dd></div>
+          <div><dt>Bridges</dt><dd data-qn-shape="bridges">{{qn_bridges}}</dd></div>
+          <div><dt>Clusters</dt><dd>Tight groups that mostly connect to each other: a team, a product family, a fraud ring.</dd></div>
+          <div><dt>Outliers</dt><dd data-qn-shape="outliers">{{qn_outliers}}</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="qn-table-h">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">The numbers</p>
+          <h2 class="h-section" id="qn-table-h">Every <span class="serif">connection</span>.</h2>
+        </div>
+        <p>The same data as the graph, ranked by completions from the center QB.</p>
+      </div>
+      <div class="qn-tables reveal">
+        <div class="qn-tablewrap">
+          <table class="qn-table" id="qn-table-rec">
+            <caption>Completions from <span data-qn-name>{{qn_name}}</span></caption>
+            <thead><tr><th scope="col">Receiver</th><th scope="col">Pos</th><th scope="col" class="n">Comp</th><th scope="col" class="n">Yds</th></tr></thead>
+            <tbody>{{qn_rows}}</tbody>
+          </table>
+        </div>
+        <div class="qn-tablewrap">
+          <table class="qn-table" id="qn-table-oth">
+            <caption>Other passers to the same receivers</caption>
+            <thead><tr><th scope="col">Passer</th><th scope="col">Pos</th><th scope="col" class="n">Comp</th><th scope="col">To</th></tr></thead>
+            <tbody>{{qn_oth_rows}}</tbody>
+          </table>
+        </div>
+      </div>
+      <p class="qn-credit reveal">Data: <a class="text-link" href="https://github.com/nflverse" target="_blank" rel="noopener">nflverse</a> play-by-play and rosters, {{qn_season}} regular season, updated {{qn_updated}}. Counts include every completed pass charged to a passer and receiver, touchdowns included. Two-point tries and plays wiped out by penalties are excluded. Built by me with AI. Graph physics written from scratch, no outside libraries.</p>
+      <div class="tags reveal"><span class="tag">Force-directed graph</span><span class="tag">Vanilla JS + SVG</span><span class="tag">Python</span><span class="tag">nflverse</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div class="bars" aria-hidden="true"><i style="height:40px"></i><i style="height:64px"></i><i style="height:52px"></i><i style="height:88px"></i><i style="height:76px"></i><i class="a" style="height:120px"></i><i style="height:104px"></i><i class="a" style="height:150px"></i></div>
+        <div><p class="eyebrow">Talk shop</p><h2>Have data that needs <span class="serif accent">exploring</span>?</h2></div>
+        <div class="btn-row" style="margin-top:0"><a class="btn btn-primary" href="/contact/">Get in touch {{icon:arrow}}</a></div>
+      </div>
+      <p style="margin:32px 0 0"><a class="text-link" href="/work/visuals/">← All interactive visuals</a></p>
+    </div>
+  </section>
+</main>
