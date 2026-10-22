@@ -202,7 +202,7 @@ PAGES = [
     ("aipd.html", "work/dashboards/aipd/index.html", "/work/dashboards/aipd/", "AIPD dashboard: who to call next · Gary Blevins",
      "A rebuild of the AIPD dashboard Gary Blevins built at a facilities software company, with fictional example data: CRM customers matched to a market list and enriched with third-party data, tailored to each account executive's territory."),
     ("contact.html", "contact/index.html", "/contact/", "Contact — Gary Blevins",
-     "Get in touch with Gary Blevins, analytics and BI leader based in King George, Virginia."),
+     "Get in touch with Gary Blevins, analytics and BI leader based in Virginia."),
     ("contact-thanks.html", "contact/thanks/index.html", "/contact/thanks/", "Message sent — Gary Blevins",
      "Thanks for reaching out to Gary Blevins."),
     ("404.html", "404.html", "/404.html", "Page not found — Gary Blevins", "This page doesn't exist."),
@@ -225,7 +225,7 @@ JSON_LD = {
     "url": SITE_URL + "/", "image": SITE_URL + "/assets/img/gary/gary-640.jpg", "jobTitle": "Principal Finance Data Analyst",
     "description": "Analytics and business intelligence leader who turns complex business challenges into scalable data, automation, and reporting solutions.",
     "alumniOf": {"@type": "CollegeOrUniversity", "name": "Winthrop University"},
-    "address": {"@type": "PostalAddress", "addressLocality": "King George", "addressRegion": "VA", "addressCountry": "US"},
+    "address": {"@type": "PostalAddress", "addressRegion": "VA", "addressCountry": "US"},
     "knowsAbout": ["Business Intelligence", "Data Analytics", "Power BI", "Tableau", "SQL", "Python", "Data Governance", "Project Management"],
 }
 
